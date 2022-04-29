@@ -1,3 +1,10 @@
+.front-page_section-title_settings, .restaurants_title, .fonctionnement_title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 38px;
+  padding-left: 20px;
+}
+
 :root {
   font-family: Roboto, sans-serif;
   font-size: 20px;
@@ -25,9 +32,14 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  padding-top: 35px;
-  padding-bottom: 10px;
+  padding-top: 28px;
+  padding-bottom: 16px;
   background-color: #F6F6F6;
+}
+.header img {
+  height: 100%;
+  position: relative;
+  left: -10px;
 }
 
 .banner {
@@ -38,15 +50,22 @@ body {
   width: 100%;
 }
 .banner_mylocation {
-  height: 60px;
+  height: 66px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: lightgray;
+}
+.banner_mylocation_box {
+  height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
+  background-color: red;
 }
-.banner_mylocation span {
+.banner_mylocation_box span {
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -55,8 +74,8 @@ body {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 60px;
-  padding-bottom: 80px;
+  padding-top: 55px;
+  padding-bottom: 75px;
   background-color: #F6F6F6;
 }
 .banner_explore_title {
@@ -68,13 +87,13 @@ body {
 .banner_explore_text {
   width: 100%;
   font-size: 1.18rem;
-  margin-top: 20px;
+  margin-top: 18px;
   text-align: center;
   background-color: red;
 }
 .banner_explore_bouton {
   margin-top: 40px;
-  height: 60px;
+  height: 68px;
   width: 60%;
   background-color: pink;
   display: flex;
@@ -84,14 +103,8 @@ body {
 }
 
 .fonctionnement {
-  padding-top: 50px;
+  padding-top: 65px;
   padding-bottom: 50px;
-}
-.fonctionnement_title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-bottom: 30px;
-  padding-left: 20px;
 }
 .fonctionnement_list {
   height: 360px;
@@ -103,6 +116,8 @@ body {
   margin: 0;
 }
 .fonctionnement_list li {
+  list-style-type: none;
+  text-decoration: none;
   padding: 0;
   margin: 0;
   display: flex;
@@ -112,16 +127,16 @@ body {
   margin-left: 10%;
   margin-right: 10%;
   height: 100px;
-  max-width: 400px;
   background-color: red;
   border-radius: 40px;
 }
 .fonctionnement_list li * {
   margin-right: 30px;
-}
-.fonctionnement_list li div {
   position: relative;
   left: -15px;
+  bottom: -5px;
+}
+.fonctionnement_list li div {
   background-color: #9356DC;
   width: 30px;
   height: 30px;
@@ -130,13 +145,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.restaurants_title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-bottom: 30px;
-  padding-left: 20px;
+.fonctionnement_list li i {
+  color: #9356DC;
 }
+
 .restaurants_bloc-vignettes {
   background-color: lightblue;
   display: flex;
