@@ -1,19 +1,33 @@
 $font_title: Shrikhand;
 $font_text: Roboto;
 
-$color_background: #F6F6F6;
+
 $color_primary: #9356DC;
 $color_secondary: #FF79DA;
 $color_tertiary: #99E2D0;
 
+$color_background1: #f6f6f6;
+$color_background2: #ffffff;
+$color_background3: #eaeaea;
+$color_footer-background: #353535;
+
+$icon_color_fonctionnement: #7e7e7e;
+$icon_color_nouveau: #008766;
+
+@function lightness-shift($color, $percent){
+    @return lighten($color, $percent);}
+
 .front-page_section-title_settings {
     font-size: 1.5rem;
     font-weight: bold;
-    padding-bottom: 38px;
     padding-left: 20px;
 }
 
-
+.link_formatting_removal{
+    a:link { text-decoration: none}
+    a:visited { text-decoration: none}
+    a:active { text-decoration: none}
+}
 
 :root
 {
@@ -39,181 +53,262 @@ body
     margin-right: auto;
 }
 
-.header
+header
 {
-    width: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    padding-top: 28px;
-    padding-bottom: 16px;
-    background-color: $color_background;
-    img{
-        height: 100%;
-        position: relative;
-        left: -10px;
+    background-color: $color_background2;
+    .header{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        padding-top: 28px;
+        padding-bottom: 16px;
+        img{
+            height: 100%;
+            position: relative;
+            left: -10px;
+        }
     }
+
 }
 
 .banner
 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    &_mylocation{
-        height: 66px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        background-color: lightgray;
-        &_box{
-            height: 100%;
-            width: 50%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background-color: red;
-            
-            span{
-                margin-left: 25px;
-                margin-right: 25px;
-            }
-        }
-        
-    }
-    &_explore{
+    background-color: $color_background1;
+    &_bloc{
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
-        padding-top: 55px;
-        padding-bottom: 75px;
-        background-color: $color_background;
-        &_title{
-            width: 70%;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-        }
-        &_text{
+        width: 100%;
+        &_mylocation{
+            height: 66px;
             width: 100%;
-            font-size: 1.18rem;
-            margin-top: 18px;
-            text-align: center;
-            background-color: red;
-        }
-        &_bouton{
-            margin-top: 40px;
-            height: 68px;
-            width: 60%;
-            background-color: pink;
             display: flex;
-            align-items: center;
             justify-content: center;
-            border-radius: 40px;
+            background-color: $color_background3;
+            @extend .link_formatting_removal;
+            &_box{
+                color: black;
+                height: 100%;
+                width: 50%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                span{
+                    margin-left: 25px;
+                    margin-right: 25px;
+                }
+            }
+        }
+        &_explore{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 55px;
+            padding-bottom: 75px;
+            width: 100%;
+            @extend .link_formatting_removal;
+            &_title{
+                width: 70%;
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-align: center;
+            }
+            &_text{
+                width: 100%;
+                font-size: 1.18rem;
+                margin-top: 18px;
+                text-align: center;
+            }
+            &_bouton{
+                color: white;
+                margin-top: 40px;
+                height: 68px;
+                width: 60%;
+                background: linear-gradient($color_secondary, $color_primary);
+                background-color: pink;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 40px;
+            }
         }
     }
 }
 
 .fonctionnement{
-    padding-top: 65px;
-    padding-bottom: 50px;
-    &_title{
+    $color_background2: #ffffff;
+    &_bloc{
+        padding-top: 65px;
+        padding-bottom: 90px;
+        &_title{
         @extend .front-page_section-title_settings;
-    }
-    &_list{
-        height: 360px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: green;
-        padding: 0;
-        margin: 0;
-        li{
-            list-style-type: none;
-            text-decoration: none;
+        padding-bottom: 38px;
+        }
+        &_list{
+            height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             padding: 0;
             margin: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            margin-left: 10%;
-            margin-right: 10%;
-            height: 100px;
-            background-color: red;
-            border-radius: 40px;
-            *{
-                margin-right: 30px;
+            li{
+                // QUESTION: comment coder les elements du li pour que ca soit jolie en desktop?
+                list-style-type: none;
+                text-decoration: none;
+                width: 90%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                margin-left: 10%;
+                margin-right: 10%;
+                height: 100px;
+                background-color: $color_background1;
+                border-radius: 40px;
                 position: relative;
-                left: -15px;
-                bottom: -5px;
-            }
+                left: 10px;
+                *{
+                    margin-right: 30px;
+                    position: relative;
+                    left: -15px;
+                    bottom: -5px;
+                }
             div{
                 background-color: $color_primary;
-                width: 30px;
-                height: 30px;
-                border-radius: 30px;
+                color: white;
+                width: 35px;
+                height: 35px;
+                border-radius: 35px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
             i{
-                color: $color_primary
+                color: $icon_color_fonctionnement;
+                font-size: 1.4rem;
+            }
+            &:hover{
+                background-color: lightness-shift($color-primary, 35%);
+                i{
+                    color: $color_primary;
+                }
+                // QUESTION: CEUX SONT DES LIENS CES TRUCS OU PAS ????
             }
         }
     }
+    }
+
 }
 
 .restaurants{
-    &_title{
-        @extend .front-page_section-title_settings;
-    }
-    &_bloc-vignettes{
-        background-color: lightblue;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .vignette{
-            width: 90%;
-            height: 330px;
-            background-color: red;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            overflow: hidden;
-            &_photo{
-                width: 100%;
-                height: 70%;
-                img{
+    background-color: $color_background1;
+    &_bloc{
+        padding-bottom: 65px;
+        &_title{
+            padding-top: 73px;
+            padding-bottom: 30px;
+            @extend .front-page_section-title_settings;
+        }
+        @extend .link_formatting_removal;
+        &_bloc-vignettes{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .vignette{
+                &_nouveau{
+                    margin-top: 3%;
+                    width: 100px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    background-color: lightness-shift($icon_color_nouveau, 55%);
+                    color: $icon_color_nouveau;
+                    right: 8%;
+                    font-size: 0.9rem;
+                    border-radius: 2px;
+                }
+                width: 90%;
+                height: 337px;
+                background-color: $color_background2;
+                margin-bottom: 20px;
+                border-radius: 20px;
+                overflow: hidden;
+                &_photo{
                     width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+                    height: 69%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                &_box{
+                    width: 100%;
+                    height: 31%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    .vignette_text{
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        &_title{
+                            font-weight: bold;
+                            font-size: 1.2rem;
+                            color: black;
+                            padding-bottom: 5px;
+                        }
+                        &_location{
+                            color: black;
+                            font-size: 1.1rem;
+                            font-weight: lighter;
+                        }
+
+                    }
+                    .fa-heart{
+                        font-size: 1.8rem;
+                        color: black;
+                        width: auto;
+                        height: auto;
+                        // QUESTION: j'utilise quoi pour les coeurs? ils sont premiums ceux qu'on peut remplir a l'inteieur ? technique secrete ?
+                        &:hover{
+                            color: red;
+                        }
+                    }
+                    // .fa-solid{
+                    //     position: absolute;
+                    //     right: 45px;
+                    //     display: none;
+                    //     &:hover{
+                    //         display: block;
+                    //     }
+                    // }
                 }
             }
-            &_box{
-                width: 100%;
-                height: 30%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
+            // QUESTION: COMMENT JE FAIS LE BLOC ICI? il faut que tte l'image soit un lien mais il faut aussi que le like soit un lien 
         }
-        // QUESTION: COMMENT JE FAIS LE BLOC ICI? il faut que tte l'image soit un lien mais il faut aussi que le like soit un lien 
     }
 }
 .footer{
     padding-left: 20px;
-    padding-bottom: 50px;
-    background-color: #252524;
+    padding-bottom: 40px;
+    background-color: $color_footer-background;
     
     &_title{
-        padding-top: 40px;
-        padding-bottom: 20px;
+        padding-top: 27px;
+        padding-bottom: 26px;
         font-family: $font_title;
         color: white;
         font-size: 1.25rem;
@@ -224,14 +319,95 @@ body
         margin: 0;
         padding: 0;
         li{
+            @extend .link_formatting_removal;
             a{
                 color: white;
-                &:link {text-decoration: none;}
-                &:visited {text-decoration: none;}
-                &:active {text-decoration: none;}
             }
             padding-bottom: 10px;
+            i{
+                width: 15px;
+                margin-right: 15px;
+            }
 
+            // QUESTION comment je fais pour aligner le text apres les icons 
+
+        }
+    }
+}
+
+
+.content{
+    width: 100%;
+    &_photo{
+        width: 100%;
+        height: 350px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &_section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        top: -75px;
+        margin-bottom: -78px;
+        background-color: $color_background1;
+        @extend .link_formatting_removal;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        &_title-box{
+            width: 88%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            margin: 40px 5% 40px 5%;
+            &_title{
+                font-family: $font_title;
+            }
+        }
+        &_bloc{
+            width: 100%;
+            padding-bottom: 20px;
+            &_title{
+                margin-bottom: 30px;
+                margin-left: 30px;
+            }
+            &_vignette{
+                background-color: $color_background2;
+                border-radius: 20px;
+                margin: 20px 20px 20px 20px;
+                padding: 14px 14px 14px 14px;
+                display: flex;
+                justify-content: space-between;
+                &_left{
+                    &_title{
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                    }
+                    &_description{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        &_bouton{
+            color: white;
+            margin-top: 20px;
+            margin-bottom: 105px;
+            height: 60px;
+            width: 50%;
+            background: linear-gradient($color_secondary, $color_primary);
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;        
         }
     }
 }

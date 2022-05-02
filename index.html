@@ -7,7 +7,7 @@
         <script src="https://kit.fontawesome.com/065a5ed28c.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shrikhand&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Shrikhand&display=swap" rel="stylesheet">
         <title>Oh my food</title>
     </head>
     <body>
@@ -17,26 +17,29 @@
             </div>
         </header>
         <main>
-            <div class="wrapper banner">
-                <div class="banner_mylocation">
-                    <a href="" class="banner_mylocation_box">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Paris, Belleville</span>
-                    </a>
-                </div>
-                <div class="banner_explore">
-                    <div class="banner_explore_title">Réservez le menu qui vous convient</div>
-                    <div class="banner_explore_text">Découvrez des restaurants d'exception, séléctionnés par nos soins.</div>
-                    <a href="" class="banner_explore_bouton">
-                        <span>Explorer nos restaurants</span>
-                    </a>
+            <div class="banner">
+                <div class="wrapper banner_bloc">
+                    <div class="banner_bloc_mylocation">
+                        <a href="" class="banner_bloc_mylocation_box">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Paris, Belleville</span>
+                        </a>
+                    </div>
+                    <div class="banner_bloc_explore">
+                        <div class="banner_bloc_explore_title">Réservez le menu qui vous convient</div>
+                        <div class="banner_bloc_explore_text">Découvrez des restaurants d'exception, séléctionnés par nos soins.</div>
+                        <a href="" class="banner_bloc_explore_bouton">
+                            <span>Explorer nos restaurants</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <!-- je fous la classe dans la section ou sur le wrapper? -->
-            <section> 
-                <div class="wrapper fonctionnement">
-                    <div class="fonctionnement_title">Fonctionnement</div>
-                    <ul class="fonctionnement_list">
+            
+            <!-- QUESTION je fous la classe dans la section ou sur le wrapper? -->
+            <section class="fonctionnement"> 
+                <div class="wrapper fonctionnement_bloc">
+                    <div class="fonctionnement_bloc_title">Fonctionnement</div>
+                    <ul class="fonctionnement_bloc_list">
                         <li>
                             <div class="li_number">1</div>
                             <i class="fa-solid fa-mobile-screen"></i>
@@ -56,44 +59,58 @@
                 </div>
             </section>
             
-            <section>
-                <div class="wrapper restaurants">
-                    <div class="restaurants_title">Restaurants</div>
-                    <div class="restaurants_bloc-vignettes">
+            <section class="restaurants">
+                <div class="wrapper restaurants_bloc">
+                    <div class="restaurants_bloc_title">Restaurants</div>
+                    <div class="restaurants_bloc_bloc-vignettes">
+                        <a href="" class="vignette">
+                            <div class="vignette_nouveau">Nouveau</div>
+                            <div class="vignette_photo">
+                                <img src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""/>
+                            </div>
+                            <div class="vignette_box">
+                                <div class="vignette_text">
+                                    <div class="vignette_text_title">La palette du goût</div>
+                                    <div class="vignette_text_location">Ménilmontant</div>
+                                </div>
+                                <!-- <i class="fa-regular fa-heart"></i> -->
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                        </a>
                         <a href="" class="vignette">
                             <div class="vignette_photo">
                                 <img src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""/>
                             </div>
                             <div class="vignette_box">
                                 <div class="vignette_text">
-                                    <div class="vignette_title">La palette du goût</div>
-                                    <div class="vignette_location">Ménilmontant</div>
+                                    <div class="vignette_text_title">La palette du goût</div>
+                                    <div class="vignette_text_location">Ménilmontant</div>
                                 </div>
-                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-regular fa-heart"></i>
                             </div>
                         </a>
                         <a href="" class="vignette">
                             <div class="vignette_photo">
-                                <img src="http://placehold.jp/150x150.png" alt=""/>
+                                <img src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""/>
                             </div>
                             <div class="vignette_box">
                                 <div class="vignette_text">
-                                    <div class="vignette_title">La palette du goût</div>
-                                    <div class="vignette_location">Ménilmontant</div>
+                                    <div class="vignette_text_title">La palette du goût</div>
+                                    <div class="vignette_text_location">Ménilmontant</div>
                                 </div>
-                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-regular fa-heart"></i>
                             </div>
                         </a>
                         <a href="" class="vignette">
                             <div class="vignette_photo">
-                                <img src="http://placehold.jp/150x150.png" alt=""/>
+                                <img src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""/>
                             </div>
                             <div class="vignette_box">
                                 <div class="vignette_text">
-                                    <div class="vignette_title">La palette du goût</div>
-                                    <div class="vignette_location">Ménilmontant</div>
+                                    <div class="vignette_text_title">La palette du goût</div>
+                                    <div class="vignette_text_location">Ménilmontant</div>
                                 </div>
-                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-regular fa-heart"></i>
                             </div>
                         </a>
                     </div>
