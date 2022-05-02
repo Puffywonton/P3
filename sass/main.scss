@@ -14,8 +14,53 @@ $color_footer-background: #353535;
 $icon_color_fonctionnement: #7e7e7e;
 $icon_color_nouveau: #008766;
 
+$color_test: lightness-shift($color-primary, 35%);
+
+$anim-dur: 5s;
+$anim-delay: $anim-dur / 3;
+
+@keyframes anim_fonctionnement{
+    15% {
+        // background-color: lightness-shift($color-primary, 35%);
+        background-color: #f5edff;
+        // background-color: $color_test;
+        transform: scaleX(1.01);
+    }
+}
+
+@keyframes anim_fonctionnement_i{
+    15% {
+        color: $color_primary;
+    }
+}
+
 @function lightness-shift($color, $percent){
     @return lighten($color, $percent);}
+
+@mixin bouton ($bouton_width, $bouton_height, $bouton_radius){
+    height: $bouton_height;
+    width: $bouton_width;
+    border-radius: $bouton_radius;
+    background: linear-gradient($color_secondary, $color_primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin gradient_transition {
+    background: linear-gradient($color_secondary, $color_primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin default_scale_transition{
+    transform: scale(1.1);
+}
+
+@mixin default_transition_duration {
+    transition-duration: 200ms;
+}
 
 .front-page_section-title_settings {
     font-size: 1.5rem;
@@ -63,10 +108,22 @@ header
         justify-content: center;
         padding-top: 28px;
         padding-bottom: 16px;
+        @extend .link_formatting_removal;
         img{
             height: 100%;
             position: relative;
             left: -10px;
+        }
+        i{
+            color: black;
+            font-size: 1.5rem;
+            position: absolute;
+            margin-top: 5px;
+            left: 5%;
+            @include default_transition_duration();
+            &:hover{
+                @include default_scale_transition();
+            }
         }
     }
 
@@ -126,14 +183,11 @@ header
             &_bouton{
                 color: white;
                 margin-top: 40px;
-                height: 68px;
-                width: 60%;
-                background: linear-gradient($color_secondary, $color_primary);
-                background-color: pink;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 40px;
+                @include bouton (60%, 68px, 40px);
+                @include default_transition_duration();
+                &:hover{
+                    @include default_scale_transition();
+                }
             }
         }
     }
@@ -156,6 +210,29 @@ header
             align-items: center;
             padding: 0;
             margin: 0;
+            .fonctionnement_animation{
+                @for $i from 1 through 3 {
+                    &--#{$i} {
+                        animation-delay: ($anim-delay * $i);
+                        .animation_i{
+                            &--#{$i} {
+                                animation: anim_fonctionnement_i $anim-dur infinite;
+                                animation-delay: ($anim-delay * $i);
+                                
+                            }
+                        }
+                    }
+                    
+                }
+                // .animation_i{
+
+                //     @for $i from 1 through 3 {
+                //         &--#{$i} {
+                //             animation-delay: ($anim-delay * $i);
+                //         }
+                //     }
+                // }
+            }
             li{
                 // QUESTION: comment coder les elements du li pour que ca soit jolie en desktop?
                 list-style-type: none;
@@ -171,7 +248,7 @@ header
                 margin-right: 10%;
                 height: 100px;
                 background-color: $color_background1;
-                border-radius: 40px;
+                border-radius: 25px;
                 position: relative;
                 left: 10px;
                 *{
@@ -193,14 +270,20 @@ header
             i{
                 color: $icon_color_fonctionnement;
                 font-size: 1.4rem;
+                width: 25px;
             }
-            &:hover{
-                background-color: lightness-shift($color-primary, 35%);
-                i{
-                    color: $color_primary;
-                }
-                // QUESTION: CEUX SONT DES LIENS CES TRUCS OU PAS ????
+            span{
+                font-weight:600;
             }
+            // @include default_transition_duration;
+            animation: anim_fonctionnement $anim-dur infinite;
+            
+            // &:hover{
+            //     background-color: lightness-shift($color-primary, 35%);
+            //     i{
+            //         color: $color_primary;
+            //     }
+            // }
         }
     }
     }
@@ -282,10 +365,14 @@ header
                         color: black;
                         width: auto;
                         height: auto;
-                        // QUESTION: j'utilise quoi pour les coeurs? ils sont premiums ceux qu'on peut remplir a l'inteieur ? technique secrete ?
+                        @include default_transition_duration;
                         &:hover{
-                            color: red;
+                            @include gradient_transition();
+                            @include default_scale_transition();
                         }
+                        
+                        // QUESTION: j'utilise quoi pour les coeurs? ils sont premiums ceux qu'on peut remplir a l'inteieur ? technique secrete ?
+                        
                     }
                     // .fa-solid{
                     //     position: absolute;
@@ -297,7 +384,6 @@ header
                     // }
                 }
             }
-            // QUESTION: COMMENT JE FAIS LE BLOC ICI? il faut que tte l'image soit un lien mais il faut aussi que le like soit un lien 
         }
     }
 }
@@ -369,6 +455,14 @@ header
             &_title{
                 font-family: $font_title;
             }
+            i{
+                transition-duration: 200ms;
+                &:hover{
+                    @include gradient_transition();
+                    @include default_scale_transition();
+                }
+                
+            }
         }
         &_bloc{
             width: 100%;
@@ -400,14 +494,11 @@ header
             color: white;
             margin-top: 20px;
             margin-bottom: 105px;
-            height: 60px;
-            width: 50%;
-            background: linear-gradient($color_secondary, $color_primary);
-            background-color: pink;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 40px;        
+            @include bouton (50%, 60px, 40px);      
+            @include default_transition_duration();
+            &:hover{
+                @include default_scale_transition();
+            }
         }
     }
 }

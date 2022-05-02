@@ -1,18 +1,46 @@
+@-webkit-keyframes anim_fonctionnement {
+  15% {
+    background-color: #f5edff;
+    -webkit-transform: scaleX(1.01);
+            transform: scaleX(1.01);
+  }
+}
+
+@keyframes anim_fonctionnement {
+  15% {
+    background-color: #f5edff;
+    -webkit-transform: scaleX(1.01);
+            transform: scaleX(1.01);
+  }
+}
+
+@-webkit-keyframes anim_fonctionnement_i {
+  15% {
+    color: #9356DC;
+  }
+}
+
+@keyframes anim_fonctionnement_i {
+  15% {
+    color: #9356DC;
+  }
+}
+
 .front-page_section-title_settings, .fonctionnement_bloc_title, .restaurants_bloc_title {
   font-size: 1.5rem;
   font-weight: bold;
   padding-left: 20px;
 }
 
-.link_formatting_removal a:link, .banner_bloc_mylocation a:link, .banner_bloc_explore a:link, .restaurants_bloc a:link, .footer ul li a:link, .content_section a:link {
+.link_formatting_removal a:link, header .header a:link, .banner_bloc_mylocation a:link, .banner_bloc_explore a:link, .restaurants_bloc a:link, .footer ul li a:link, .content_section a:link {
   text-decoration: none;
 }
 
-.link_formatting_removal a:visited, .banner_bloc_mylocation a:visited, .banner_bloc_explore a:visited, .restaurants_bloc a:visited, .footer ul li a:visited, .content_section a:visited {
+.link_formatting_removal a:visited, header .header a:visited, .banner_bloc_mylocation a:visited, .banner_bloc_explore a:visited, .restaurants_bloc a:visited, .footer ul li a:visited, .content_section a:visited {
   text-decoration: none;
 }
 
-.link_formatting_removal a:active, .banner_bloc_mylocation a:active, .banner_bloc_explore a:active, .restaurants_bloc a:active, .footer ul li a:active, .content_section a:active {
+.link_formatting_removal a:active, header .header a:active, .banner_bloc_mylocation a:active, .banner_bloc_explore a:active, .restaurants_bloc a:active, .footer ul li a:active, .content_section a:active {
   text-decoration: none;
 }
 
@@ -60,6 +88,21 @@ header .header img {
   height: 100%;
   position: relative;
   left: -10px;
+}
+
+header .header i {
+  color: black;
+  font-size: 1.5rem;
+  position: absolute;
+  margin-top: 5px;
+  left: 5%;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+}
+
+header .header i:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .banner {
@@ -156,9 +199,9 @@ header .header img {
   margin-top: 40px;
   height: 68px;
   width: 60%;
+  border-radius: 40px;
   background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
   background: linear-gradient(#FF79DA, #9356DC);
-  background-color: pink;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -168,7 +211,13 @@ header .header img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 40px;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+}
+
+.banner_bloc_explore_bouton:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .fonctionnement_bloc {
@@ -199,6 +248,42 @@ header .header img {
   margin: 0;
 }
 
+.fonctionnement_bloc_list .fonctionnement_animation--1 {
+  -webkit-animation-delay: 1.66667s;
+          animation-delay: 1.66667s;
+}
+
+.fonctionnement_bloc_list .fonctionnement_animation--1 .animation_i--1 {
+  -webkit-animation: anim_fonctionnement_i 5s infinite;
+          animation: anim_fonctionnement_i 5s infinite;
+  -webkit-animation-delay: 1.66667s;
+          animation-delay: 1.66667s;
+}
+
+.fonctionnement_bloc_list .fonctionnement_animation--2 {
+  -webkit-animation-delay: 3.33333s;
+          animation-delay: 3.33333s;
+}
+
+.fonctionnement_bloc_list .fonctionnement_animation--2 .animation_i--2 {
+  -webkit-animation: anim_fonctionnement_i 5s infinite;
+          animation: anim_fonctionnement_i 5s infinite;
+  -webkit-animation-delay: 3.33333s;
+          animation-delay: 3.33333s;
+}
+
+.fonctionnement_bloc_list .fonctionnement_animation--3 {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+
+.fonctionnement_bloc_list .fonctionnement_animation--3 .animation_i--3 {
+  -webkit-animation: anim_fonctionnement_i 5s infinite;
+          animation: anim_fonctionnement_i 5s infinite;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+
 .fonctionnement_bloc_list li {
   list-style-type: none;
   text-decoration: none;
@@ -222,9 +307,11 @@ header .header img {
   margin-right: 10%;
   height: 100px;
   background-color: #f6f6f6;
-  border-radius: 40px;
+  border-radius: 25px;
   position: relative;
   left: 10px;
+  -webkit-animation: anim_fonctionnement 5s infinite;
+          animation: anim_fonctionnement 5s infinite;
 }
 
 .fonctionnement_bloc_list li * {
@@ -254,14 +341,11 @@ header .header img {
 .fonctionnement_bloc_list li i {
   color: #7e7e7e;
   font-size: 1.4rem;
+  width: 25px;
 }
 
-.fonctionnement_bloc_list li:hover {
-  background-color: #f2eafb;
-}
-
-.fonctionnement_bloc_list li:hover i {
-  color: #9356DC;
+.fonctionnement_bloc_list li span {
+  font-weight: 600;
 }
 
 .restaurants {
@@ -380,10 +464,18 @@ header .header img {
   color: black;
   width: auto;
   height: auto;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
 }
 
 .restaurants_bloc_bloc-vignettes .vignette_box .fa-heart:hover {
-  color: red;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .footer {
@@ -475,6 +567,21 @@ header .header img {
   font-family: Shrikhand;
 }
 
+.content_section_title-box i {
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+}
+
+.content_section_title-box i:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .content_section_bloc {
   width: 100%;
   padding-bottom: 20px;
@@ -514,9 +621,9 @@ header .header img {
   margin-bottom: 105px;
   height: 60px;
   width: 50%;
+  border-radius: 40px;
   background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
   background: linear-gradient(#FF79DA, #9356DC);
-  background-color: pink;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -526,6 +633,12 @@ header .header img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 40px;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+}
+
+.content_section_bouton:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 /*# sourceMappingURL=main.css.map */
