@@ -216,8 +216,8 @@ header .header i:hover {
 }
 
 .banner_bloc_explore_bouton:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff93e1), to(#a16be0));
+  background: linear-gradient(#ff93e1, #a16be0);
 }
 
 .fonctionnement_bloc {
@@ -249,39 +249,39 @@ header .header i:hover {
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--1 {
-  -webkit-animation-delay: 1.66667s;
-          animation-delay: 1.66667s;
+  -webkit-animation-delay: 1.33333s;
+          animation-delay: 1.33333s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--1 .animation_i--1 {
-  -webkit-animation: anim_fonctionnement_i 5s infinite;
-          animation: anim_fonctionnement_i 5s infinite;
-  -webkit-animation-delay: 1.66667s;
-          animation-delay: 1.66667s;
+  -webkit-animation: anim_fonctionnement_i 4s infinite;
+          animation: anim_fonctionnement_i 4s infinite;
+  -webkit-animation-delay: 1.33333s;
+          animation-delay: 1.33333s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--2 {
-  -webkit-animation-delay: 3.33333s;
-          animation-delay: 3.33333s;
+  -webkit-animation-delay: 2.66667s;
+          animation-delay: 2.66667s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--2 .animation_i--2 {
-  -webkit-animation: anim_fonctionnement_i 5s infinite;
-          animation: anim_fonctionnement_i 5s infinite;
-  -webkit-animation-delay: 3.33333s;
-          animation-delay: 3.33333s;
+  -webkit-animation: anim_fonctionnement_i 4s infinite;
+          animation: anim_fonctionnement_i 4s infinite;
+  -webkit-animation-delay: 2.66667s;
+          animation-delay: 2.66667s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--3 {
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--3 .animation_i--3 {
-  -webkit-animation: anim_fonctionnement_i 5s infinite;
-          animation: anim_fonctionnement_i 5s infinite;
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s;
+  -webkit-animation: anim_fonctionnement_i 4s infinite;
+          animation: anim_fonctionnement_i 4s infinite;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 
 .fonctionnement_bloc_list li {
@@ -310,8 +310,8 @@ header .header i:hover {
   border-radius: 25px;
   position: relative;
   left: 10px;
-  -webkit-animation: anim_fonctionnement 5s infinite;
-          animation: anim_fonctionnement 5s infinite;
+  -webkit-animation: anim_fonctionnement 4s infinite;
+          animation: anim_fonctionnement 4s infinite;
 }
 
 .fonctionnement_bloc_list li * {
@@ -640,5 +640,7 @@ header .header i:hover {
 .content_section_bouton:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff93e1), to(#a16be0));
+  background: linear-gradient(#ff93e1, #a16be0);
 }
 /*# sourceMappingURL=main.css.map */
