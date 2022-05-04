@@ -15,21 +15,32 @@ $icon_color_fonctionnement: #7e7e7e;
 $icon_color_nouveau: #008766;
 
 
-$anim-dur: 4s;
+$anim-dur: 2s;
 $anim-delay: $anim-dur / 3;
 
 @keyframes anim_fonctionnement{
-    15% {
-        // background-color: lightness-shift($color-primary, 35%);
+    25% {
         background-color: #f5edff;
-        // background-color: $color_test;
         transform: scaleX(1.01);
     }
+
 }
 
 @keyframes anim_fonctionnement_i{
-    15% {
+    25% {
         color: $color_primary;
+    }
+}
+
+@keyframes location_anim{
+    10% {
+        transform: scaleY(0.6);
+    }
+    40% {
+        transform: translateY(-10px) rotateY(180deg);
+    }
+    70% {
+        transform: translateY(1px);
     }
 }
 
@@ -40,7 +51,8 @@ $anim-delay: $anim-dur / 3;
 }
 
 @function lightness-shift($color, $percent){
-    @return lighten($color, $percent);}
+    @return lighten($color, $percent);
+}
 
 @mixin bouton ($bouton_width, $bouton_height, $bouton_radius){
     height: $bouton_height;
@@ -161,6 +173,16 @@ header
                 span{
                     margin-left: 25px;
                     margin-right: 25px;
+                }
+                &:hover{
+                    i{
+                        animation: location_anim $anim-dur infinite;
+                    }
+                    span{
+                        transform: scale(1.01);
+                    }
+                    background-color: lightness-shift($color_background3, 1%);
+                        
                 }
             }
         }

@@ -1,12 +1,23 @@
 @keyframes anim_fonctionnement {
-  15% {
+  25% {
     background-color: #f5edff;
     transform: scaleX(1.01);
   }
 }
 @keyframes anim_fonctionnement_i {
-  15% {
+  25% {
     color: #9356DC;
+  }
+}
+@keyframes location_anim {
+  10% {
+    transform: scaleY(0.6);
+  }
+  40% {
+    transform: translateY(-10px) rotateY(180deg);
+  }
+  70% {
+    transform: translateY(1px);
   }
 }
 .front-page_section-title_settings, .restaurants_bloc_title, .fonctionnement_bloc_title {
@@ -105,6 +116,15 @@ header .header i:hover {
   margin-left: 25px;
   margin-right: 25px;
 }
+.banner_bloc_mylocation_box:hover {
+  background-color: #ededed;
+}
+.banner_bloc_mylocation_box:hover i {
+  animation: location_anim 2s infinite;
+}
+.banner_bloc_mylocation_box:hover span {
+  transform: scale(1.01);
+}
 .banner_bloc_explore {
   display: flex;
   flex-direction: column;
@@ -159,25 +179,25 @@ header .header i:hover {
   margin: 0;
 }
 .fonctionnement_bloc_list .fonctionnement_animation--1 {
-  animation-delay: 1.3333333333s;
+  animation-delay: 0.6666666667s;
 }
 .fonctionnement_bloc_list .fonctionnement_animation--1 .animation_i--1 {
-  animation: anim_fonctionnement_i 4s infinite;
-  animation-delay: 1.3333333333s;
+  animation: anim_fonctionnement_i 2s infinite;
+  animation-delay: 0.6666666667s;
 }
 .fonctionnement_bloc_list .fonctionnement_animation--2 {
-  animation-delay: 2.6666666667s;
+  animation-delay: 1.3333333333s;
 }
 .fonctionnement_bloc_list .fonctionnement_animation--2 .animation_i--2 {
-  animation: anim_fonctionnement_i 4s infinite;
-  animation-delay: 2.6666666667s;
+  animation: anim_fonctionnement_i 2s infinite;
+  animation-delay: 1.3333333333s;
 }
 .fonctionnement_bloc_list .fonctionnement_animation--3 {
-  animation-delay: 4s;
+  animation-delay: 2s;
 }
 .fonctionnement_bloc_list .fonctionnement_animation--3 .animation_i--3 {
-  animation: anim_fonctionnement_i 4s infinite;
-  animation-delay: 4s;
+  animation: anim_fonctionnement_i 2s infinite;
+  animation-delay: 2s;
 }
 .fonctionnement_bloc_list li {
   list-style-type: none;
@@ -196,7 +216,7 @@ header .header i:hover {
   border-radius: 25px;
   position: relative;
   left: 10px;
-  animation: anim_fonctionnement 4s infinite;
+  animation: anim_fonctionnement 2s infinite;
 }
 .fonctionnement_bloc_list li * {
   margin-right: 30px;

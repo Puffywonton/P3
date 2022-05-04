@@ -1,5 +1,5 @@
 @-webkit-keyframes anim_fonctionnement {
-  15% {
+  25% {
     background-color: #f5edff;
     -webkit-transform: scaleX(1.01);
             transform: scaleX(1.01);
@@ -7,7 +7,7 @@
 }
 
 @keyframes anim_fonctionnement {
-  15% {
+  25% {
     background-color: #f5edff;
     -webkit-transform: scaleX(1.01);
             transform: scaleX(1.01);
@@ -15,14 +15,44 @@
 }
 
 @-webkit-keyframes anim_fonctionnement_i {
-  15% {
+  25% {
     color: #9356DC;
   }
 }
 
 @keyframes anim_fonctionnement_i {
-  15% {
+  25% {
     color: #9356DC;
+  }
+}
+
+@-webkit-keyframes location_anim {
+  10% {
+    -webkit-transform: scaleY(0.6);
+            transform: scaleY(0.6);
+  }
+  40% {
+    -webkit-transform: translateY(-10px) rotateY(180deg);
+            transform: translateY(-10px) rotateY(180deg);
+  }
+  70% {
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+  }
+}
+
+@keyframes location_anim {
+  10% {
+    -webkit-transform: scaleY(0.6);
+            transform: scaleY(0.6);
+  }
+  40% {
+    -webkit-transform: translateY(-10px) rotateY(180deg);
+            transform: translateY(-10px) rotateY(180deg);
+  }
+  70% {
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
   }
 }
 
@@ -162,6 +192,20 @@ header .header i:hover {
   margin-right: 25px;
 }
 
+.banner_bloc_mylocation_box:hover {
+  background-color: #ededed;
+}
+
+.banner_bloc_mylocation_box:hover i {
+  -webkit-animation: location_anim 2s infinite;
+          animation: location_anim 2s infinite;
+}
+
+.banner_bloc_mylocation_box:hover span {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
 .banner_bloc_explore {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -249,39 +293,39 @@ header .header i:hover {
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--1 {
-  -webkit-animation-delay: 1.33333s;
-          animation-delay: 1.33333s;
+  -webkit-animation-delay: 0.66667s;
+          animation-delay: 0.66667s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--1 .animation_i--1 {
-  -webkit-animation: anim_fonctionnement_i 4s infinite;
-          animation: anim_fonctionnement_i 4s infinite;
+  -webkit-animation: anim_fonctionnement_i 2s infinite;
+          animation: anim_fonctionnement_i 2s infinite;
+  -webkit-animation-delay: 0.66667s;
+          animation-delay: 0.66667s;
+}
+
+.fonctionnement_bloc_list .fonctionnement_animation--2 {
   -webkit-animation-delay: 1.33333s;
           animation-delay: 1.33333s;
 }
 
-.fonctionnement_bloc_list .fonctionnement_animation--2 {
-  -webkit-animation-delay: 2.66667s;
-          animation-delay: 2.66667s;
-}
-
 .fonctionnement_bloc_list .fonctionnement_animation--2 .animation_i--2 {
-  -webkit-animation: anim_fonctionnement_i 4s infinite;
-          animation: anim_fonctionnement_i 4s infinite;
-  -webkit-animation-delay: 2.66667s;
-          animation-delay: 2.66667s;
+  -webkit-animation: anim_fonctionnement_i 2s infinite;
+          animation: anim_fonctionnement_i 2s infinite;
+  -webkit-animation-delay: 1.33333s;
+          animation-delay: 1.33333s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--3 {
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 
 .fonctionnement_bloc_list .fonctionnement_animation--3 .animation_i--3 {
-  -webkit-animation: anim_fonctionnement_i 4s infinite;
-          animation: anim_fonctionnement_i 4s infinite;
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
+  -webkit-animation: anim_fonctionnement_i 2s infinite;
+          animation: anim_fonctionnement_i 2s infinite;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 
 .fonctionnement_bloc_list li {
@@ -310,8 +354,8 @@ header .header i:hover {
   border-radius: 25px;
   position: relative;
   left: 10px;
-  -webkit-animation: anim_fonctionnement 4s infinite;
-          animation: anim_fonctionnement 4s infinite;
+  -webkit-animation: anim_fonctionnement 2s infinite;
+          animation: anim_fonctionnement 2s infinite;
 }
 
 .fonctionnement_bloc_list li * {
