@@ -1,4 +1,4 @@
-.loader {
+.front_loader {
   font-size: 4rem;
   font-family: Shrikhand;
   width: 100%;
@@ -21,7 +21,7 @@
           align-items: center;
 }
 
-.loader--1 {
+.front_loader_letter--1 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 0.125s;
@@ -30,7 +30,7 @@
           animation-direction: normal;
 }
 
-.loader--2 {
+.front_loader_letter--2 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 0.25s;
@@ -39,7 +39,7 @@
           animation-direction: normal;
 }
 
-.loader--3 {
+.front_loader_letter--3 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 0.375s;
@@ -48,7 +48,7 @@
           animation-direction: normal;
 }
 
-.loader--4 {
+.front_loader_letter--4 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 0.5s;
@@ -57,7 +57,7 @@
           animation-direction: normal;
 }
 
-.loader--5 {
+.front_loader_letter--5 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 0.625s;
@@ -66,7 +66,7 @@
           animation-direction: normal;
 }
 
-.loader--6 {
+.front_loader_letter--6 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 0.75s;
@@ -75,7 +75,7 @@
           animation-direction: normal;
 }
 
-.loader--7 {
+.front_loader_letter--7 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 0.875s;
@@ -84,7 +84,7 @@
           animation-direction: normal;
 }
 
-.loader--8 {
+.front_loader_letter--8 {
   -webkit-animation: loading_screen_div 1s backwards infinite;
           animation: loading_screen_div 1s backwards infinite;
   -webkit-animation-delay: 1s;
@@ -116,14 +116,22 @@
 }
 
 @-webkit-keyframes loading_screen {
+  80% {
+    opacity: 100%;
+  }
   100% {
     z-index: -10;
+    opacity: 0%;
   }
 }
 
 @keyframes loading_screen {
+  80% {
+    opacity: 100%;
+  }
   100% {
     z-index: -10;
+    opacity: 0%;
   }
 }
 
@@ -781,23 +789,97 @@ header .header i:hover {
   background-color: #ffffff;
   border-radius: 20px;
   margin: 20px 20px 20px 20px;
-  padding: 14px 14px 14px 14px;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  height: 100%;
+}
+
+.content_section_bloc_vignette_left {
+  padding: 14px 14px 14px 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .content_section_bloc_vignette_left_title {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .content_section_bloc_vignette_left_description {
   font-size: 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.content_section_bloc_vignette_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content_section_bloc_vignette_right_price {
+  padding: 14px 14px 14px 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: red;
+}
+
+.content_section_bloc_vignette_right_check {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.4rem;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: #99E2D0;
+  color: #ffffff;
+  display: none;
+}
+
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_check {
+  -webkit-animation: selection_plat_animation 1s;
+          animation: selection_plat_animation 1s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_check i {
+  -webkit-animation: selection_plat_i_animation 1s;
+          animation: selection_plat_i_animation 1s;
+}
+
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_price {
+  -webkit-animation: selection_plat_price_animation 1s;
+          animation: selection_plat_price_animation 1s;
 }
 
 .content_section_bouton {
@@ -827,5 +909,55 @@ header .header i:hover {
           transform: scale(1.1);
   background: -webkit-gradient(linear, left top, left bottom, from(#ff93e1), to(#a16be0));
   background: linear-gradient(#ff93e1, #a16be0);
+}
+
+@-webkit-keyframes selection_plat_animation {
+  0% {
+    -webkit-transform: translateX(75px);
+            transform: translateX(75px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes selection_plat_animation {
+  0% {
+    -webkit-transform: translateX(75px);
+            transform: translateX(75px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes selection_plat_price_animation {
+  0% {
+    -webkit-transform: translateX(75px);
+            transform: translateX(75px);
+  }
+}
+
+@keyframes selection_plat_price_animation {
+  0% {
+    -webkit-transform: translateX(75px);
+            transform: translateX(75px);
+  }
+}
+
+@-webkit-keyframes selection_plat_i_animation {
+  0% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@keyframes selection_plat_i_animation {
+  0% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -22,7 +22,7 @@ $anim-delay: $anim-dur / 3;
 $load-anim-dur: 1s;
 $load-anim-delay: $load-anim-dur / 8;
 
-.loader{
+.front_loader{
     font-size: 4rem;
     font-family: $font_title;
     width: 100%;
@@ -35,13 +35,16 @@ $load-anim-delay: $load-anim-dur / 8;
     display: flex;
     justify-content: center;
     align-items: center;
-    @for $i from 1 through 8 {
-        &--#{$i} {
-            animation: loading_screen_div $load-anim-dur backwards infinite;
-            animation-delay: ($load-anim-delay * $i);
-            animation-direction: normal;
+    &_letter{
+        @for $i from 1 through 8 {
+            &--#{$i} {
+                animation: loading_screen_div $load-anim-dur backwards infinite;
+                animation-delay: ($load-anim-delay * $i);
+                animation-direction: normal;
+            }
         }
     }
+    
 }
 @keyframes loading_screen_div{
     0%{
@@ -52,8 +55,12 @@ $load-anim-delay: $load-anim-dur / 8;
     }
 }
 @keyframes loading_screen{
+    80%{
+        opacity: 100%;
+    }
     100%{
         z-index: -10;
+        opacity: 0%;
     }
 }
 
@@ -546,17 +553,66 @@ header
                 background-color: $color_background2;
                 border-radius: 20px;
                 margin: 20px 20px 20px 20px;
-                padding: 14px 14px 14px 14px;
+                overflow: hidden;
                 display: flex;
                 justify-content: space-between;
+                height: 100%;
                 &_left{
+                    padding: 14px 14px 14px 14px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    width: 100%;
                     &_title{
                         font-size: 1.1rem;
                         font-weight: bold;
                         margin-bottom: 5px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 100%;
+                        
                     }
                     &_description{
                         font-size: 1rem;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 100%;
+                    }
+                }
+                &_right{
+                    display: flex;
+                    &_price{
+                        padding: 14px 14px 14px 14px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        font-size: 0.9rem;
+                        font-weight: bold;
+                        background-color: red;
+                    }
+                    &_check{
+                        flex-direction: column;
+                        justify-content: center;
+                        font-size: 1.4rem;
+                        padding-left: 25px;
+                        padding-right: 25px;
+                        background-color: $color_tertiary;
+                        color: #ffffff;
+                        display: none;
+                    }
+                }
+                &:hover{
+                    .content_section_bloc_vignette_right_check{
+                        animation: selection_plat_animation 1s;
+                        display: flex;
+                        i{
+                            animation: selection_plat_i_animation 1s;
+                        }
+                    }
+                    .content_section_bloc_vignette_right_price{
+                        animation: selection_plat_price_animation 1s;
                     }
                 }
             }
@@ -572,5 +628,26 @@ header
                 background: gradient-shift-light();
             }
         }
+    }
+}
+
+@keyframes selection_plat_animation {
+    0%{
+        transform: translateX(75px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes selection_plat_price_animation{
+    0%{
+        transform: translateX(75px);
+    }
+}
+
+@keyframes selection_plat_i_animation {
+    0%{
+        transform: rotate(180deg);
     }
 }

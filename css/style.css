@@ -1,4 +1,4 @@
-.loader {
+.front_loader {
   font-size: 4rem;
   font-family: Shrikhand;
   width: 100%;
@@ -12,42 +12,42 @@
   justify-content: center;
   align-items: center;
 }
-.loader--1 {
+.front_loader_letter--1 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 0.125s;
   animation-direction: normal;
 }
-.loader--2 {
+.front_loader_letter--2 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 0.25s;
   animation-direction: normal;
 }
-.loader--3 {
+.front_loader_letter--3 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 0.375s;
   animation-direction: normal;
 }
-.loader--4 {
+.front_loader_letter--4 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 0.5s;
   animation-direction: normal;
 }
-.loader--5 {
+.front_loader_letter--5 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 0.625s;
   animation-direction: normal;
 }
-.loader--6 {
+.front_loader_letter--6 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 0.75s;
   animation-direction: normal;
 }
-.loader--7 {
+.front_loader_letter--7 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 0.875s;
   animation-direction: normal;
 }
-.loader--8 {
+.front_loader_letter--8 {
   animation: loading_screen_div 1s backwards infinite;
   animation-delay: 1s;
   animation-direction: normal;
@@ -62,8 +62,12 @@
   }
 }
 @keyframes loading_screen {
+  80% {
+    opacity: 100%;
+  }
   100% {
     z-index: -10;
+    opacity: 0%;
   }
 }
 @keyframes anim_fonctionnement {
@@ -490,17 +494,65 @@ header .header i:hover {
   background-color: #ffffff;
   border-radius: 20px;
   margin: 20px 20px 20px 20px;
-  padding: 14px 14px 14px 14px;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
+  height: 100%;
+}
+.content_section_bloc_vignette_left {
+  padding: 14px 14px 14px 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
 .content_section_bloc_vignette_left_title {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
 .content_section_bloc_vignette_left_description {
   font-size: 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+.content_section_bloc_vignette_right {
+  display: flex;
+}
+.content_section_bloc_vignette_right_price {
+  padding: 14px 14px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: red;
+}
+.content_section_bloc_vignette_right_check {
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.4rem;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: #99E2D0;
+  color: #ffffff;
+  display: none;
+}
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_check {
+  animation: selection_plat_animation 1s;
+  display: flex;
+}
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_check i {
+  animation: selection_plat_i_animation 1s;
+}
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_price {
+  animation: selection_plat_price_animation 1s;
 }
 .content_section_bouton {
   color: white;
@@ -518,6 +570,25 @@ header .header i:hover {
 .content_section_bouton:hover {
   transform: scale(1.1);
   background: linear-gradient(#ff93e1, #a16be0);
+}
+
+@keyframes selection_plat_animation {
+  0% {
+    transform: translateX(75px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes selection_plat_price_animation {
+  0% {
+    transform: translateX(75px);
+  }
+}
+@keyframes selection_plat_i_animation {
+  0% {
+    transform: rotate(180deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
