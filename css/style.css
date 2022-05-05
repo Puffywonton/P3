@@ -86,10 +86,10 @@
 }
 @keyframes location_anim {
   10% {
-    transform: scaleY(0.6);
+    transform: scaleY(0.6) translateY(5px);
   }
   40% {
-    transform: translateY(-10px) rotateY(180deg);
+    transform: translateY(-10px) rotateY(360deg);
   }
   70% {
     transform: translateY(1px);
@@ -532,7 +532,6 @@ header .header i:hover {
   justify-content: flex-end;
   font-size: 0.9rem;
   font-weight: bold;
-  background-color: red;
 }
 .content_section_bloc_vignette_right_check {
   flex-direction: column;
@@ -553,6 +552,9 @@ header .header i:hover {
 }
 .content_section_bloc_vignette:hover .content_section_bloc_vignette_right_price {
   animation: selection_plat_price_animation 1s;
+}
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_left {
+  animation: selection_plat_cropper_animation 1s;
 }
 .content_section_bouton {
   color: white;
@@ -587,7 +589,12 @@ header .header i:hover {
 }
 @keyframes selection_plat_i_animation {
   0% {
-    transform: rotate(180deg);
+    transform: rotate(-270deg);
+  }
+}
+@keyframes selection_plat_cropper_animation {
+  0% {
+    margin-right: -75px;
   }
 }
 

@@ -83,10 +83,10 @@ $load-anim-delay: $load-anim-dur / 8;
 
 @keyframes location_anim{
     10% {
-        transform: scaleY(0.6);
+        transform: scaleY(0.6) translateY(5px);
     }
     40% {
-        transform: translateY(-10px) rotateY(180deg);
+        transform: translateY(-10px) rotateY(360deg);
     }
     70% {
         transform: translateY(1px);
@@ -590,7 +590,6 @@ header
                         justify-content: flex-end;
                         font-size: 0.9rem;
                         font-weight: bold;
-                        background-color: red;
                     }
                     &_check{
                         flex-direction: column;
@@ -601,6 +600,7 @@ header
                         background-color: $color_tertiary;
                         color: #ffffff;
                         display: none;
+                        // display: flex;
                     }
                 }
                 &:hover{
@@ -614,6 +614,10 @@ header
                     .content_section_bloc_vignette_right_price{
                         animation: selection_plat_price_animation 1s;
                     }
+                    .content_section_bloc_vignette_left{
+                        animation: selection_plat_cropper_animation 1s;
+                    }
+
                 }
             }
         }
@@ -648,6 +652,11 @@ header
 
 @keyframes selection_plat_i_animation {
     0%{
-        transform: rotate(180deg);
+        transform: rotate(-270deg);
+    }
+}
+@keyframes selection_plat_cropper_animation {
+    0%{
+        margin-right: -75px;
     }
 }

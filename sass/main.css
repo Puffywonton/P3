@@ -173,12 +173,12 @@
 
 @-webkit-keyframes location_anim {
   10% {
-    -webkit-transform: scaleY(0.6);
-            transform: scaleY(0.6);
+    -webkit-transform: scaleY(0.6) translateY(5px);
+            transform: scaleY(0.6) translateY(5px);
   }
   40% {
-    -webkit-transform: translateY(-10px) rotateY(180deg);
-            transform: translateY(-10px) rotateY(180deg);
+    -webkit-transform: translateY(-10px) rotateY(360deg);
+            transform: translateY(-10px) rotateY(360deg);
   }
   70% {
     -webkit-transform: translateY(1px);
@@ -188,12 +188,12 @@
 
 @keyframes location_anim {
   10% {
-    -webkit-transform: scaleY(0.6);
-            transform: scaleY(0.6);
+    -webkit-transform: scaleY(0.6) translateY(5px);
+            transform: scaleY(0.6) translateY(5px);
   }
   40% {
-    -webkit-transform: translateY(-10px) rotateY(180deg);
-            transform: translateY(-10px) rotateY(180deg);
+    -webkit-transform: translateY(-10px) rotateY(360deg);
+            transform: translateY(-10px) rotateY(360deg);
   }
   70% {
     -webkit-transform: translateY(1px);
@@ -845,7 +845,6 @@ header .header i:hover {
           justify-content: flex-end;
   font-size: 0.9rem;
   font-weight: bold;
-  background-color: red;
 }
 
 .content_section_bloc_vignette_right_check {
@@ -880,6 +879,11 @@ header .header i:hover {
 .content_section_bloc_vignette:hover .content_section_bloc_vignette_right_price {
   -webkit-animation: selection_plat_price_animation 1s;
           animation: selection_plat_price_animation 1s;
+}
+
+.content_section_bloc_vignette:hover .content_section_bloc_vignette_left {
+  -webkit-animation: selection_plat_cropper_animation 1s;
+          animation: selection_plat_cropper_animation 1s;
 }
 
 .content_section_bouton {
@@ -949,15 +953,27 @@ header .header i:hover {
 
 @-webkit-keyframes selection_plat_i_animation {
   0% {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+    -webkit-transform: rotate(-270deg);
+            transform: rotate(-270deg);
   }
 }
 
 @keyframes selection_plat_i_animation {
   0% {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+    -webkit-transform: rotate(-270deg);
+            transform: rotate(-270deg);
+  }
+}
+
+@-webkit-keyframes selection_plat_cropper_animation {
+  0% {
+    margin-right: -75px;
+  }
+}
+
+@keyframes selection_plat_cropper_animation {
+  0% {
+    margin-right: -75px;
   }
 }
 /*# sourceMappingURL=main.css.map */
