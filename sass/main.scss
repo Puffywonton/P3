@@ -18,10 +18,52 @@ $icon_color_nouveau: #008766;
 $anim-dur: 2s;
 $anim-delay: $anim-dur / 3;
 
+
+$load-anim-dur: 1s;
+$load-anim-delay: $load-anim-dur / 8;
+
+.loader{
+    font-size: 4rem;
+    font-family: $font_title;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    position: absolute;
+    background-color: white;
+    animation: loading_screen 4s;
+    animation-fill-mode: forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @for $i from 1 through 8 {
+        &--#{$i} {
+            animation: loading_screen_div $load-anim-dur backwards infinite;
+            animation-delay: ($load-anim-delay * $i);
+            animation-direction: normal;
+        }
+    }
+}
+@keyframes loading_screen_div{
+    0%{
+        transform: scaleY(0.9);
+    }
+    3%{
+        transform: scaleY(1.2);
+    }
+}
+@keyframes loading_screen{
+    100%{
+        z-index: -10;
+    }
+}
+
 @keyframes anim_fonctionnement{
     25% {
         background-color: #f5edff;
         transform: scaleX(1.01);
+    }
+    75% {
+        transform: scaleX(1);
     }
 
 }
@@ -223,6 +265,7 @@ header
 
 .fonctionnement{
     $color_background2: #ffffff;
+    z-index: 300;
     &_bloc{
         padding-top: 65px;
         padding-bottom: 90px;

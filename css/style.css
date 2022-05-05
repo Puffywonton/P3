@@ -1,7 +1,78 @@
+.loader {
+  font-size: 4rem;
+  font-family: Shrikhand;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  position: absolute;
+  background-color: white;
+  animation: loading_screen 4s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader--1 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 0.125s;
+  animation-direction: normal;
+}
+.loader--2 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 0.25s;
+  animation-direction: normal;
+}
+.loader--3 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 0.375s;
+  animation-direction: normal;
+}
+.loader--4 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 0.5s;
+  animation-direction: normal;
+}
+.loader--5 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 0.625s;
+  animation-direction: normal;
+}
+.loader--6 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 0.75s;
+  animation-direction: normal;
+}
+.loader--7 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 0.875s;
+  animation-direction: normal;
+}
+.loader--8 {
+  animation: loading_screen_div 1s backwards infinite;
+  animation-delay: 1s;
+  animation-direction: normal;
+}
+
+@keyframes loading_screen_div {
+  0% {
+    transform: scaleY(0.9);
+  }
+  3% {
+    transform: scaleY(1.2);
+  }
+}
+@keyframes loading_screen {
+  100% {
+    z-index: -10;
+  }
+}
 @keyframes anim_fonctionnement {
   25% {
     background-color: #f5edff;
     transform: scaleX(1.01);
+  }
+  75% {
+    transform: scaleX(1);
   }
 }
 @keyframes anim_fonctionnement_i {
@@ -162,6 +233,9 @@ header .header i:hover {
   background: linear-gradient(#ff93e1, #a16be0);
 }
 
+.fonctionnement {
+  z-index: 300;
+}
 .fonctionnement_bloc {
   padding-top: 65px;
   padding-bottom: 90px;
