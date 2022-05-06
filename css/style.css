@@ -1,5 +1,5 @@
 .front_loader {
-  font-size: 4rem;
+  font-size: 12.5vw;
   font-family: Shrikhand;
   width: 100%;
   height: 100vh;
@@ -56,9 +56,11 @@
 @keyframes loading_screen_div {
   0% {
     transform: scaleY(0.9);
+    opacity: 80%;
   }
   3% {
     transform: scaleY(1.2);
+    opacity: 100%;
   }
 }
 @keyframes loading_screen {
@@ -101,13 +103,13 @@
   padding-left: 20px;
 }
 
-.link_formatting_removal a:link, .content_section a:link, .footer ul li a:link, .restaurants_bloc a:link, .banner_bloc_explore a:link, .banner_bloc_mylocation a:link, header .header a:link {
+.link_formatting_removal a:link, .content_section a:link, .footer ul li a:link, .restaurants_bloc a:link, .banner_bloc_explore a:link, .banner_bloc a:link, header .header a:link {
   text-decoration: none;
 }
-.link_formatting_removal a:visited, .content_section a:visited, .footer ul li a:visited, .restaurants_bloc a:visited, .banner_bloc_explore a:visited, .banner_bloc_mylocation a:visited, header .header a:visited {
+.link_formatting_removal a:visited, .content_section a:visited, .footer ul li a:visited, .restaurants_bloc a:visited, .banner_bloc_explore a:visited, .banner_bloc a:visited, header .header a:visited {
   text-decoration: none;
 }
-.link_formatting_removal a:active, .content_section a:active, .footer ul li a:active, .restaurants_bloc a:active, .banner_bloc_explore a:active, .banner_bloc_mylocation a:active, header .header a:active {
+.link_formatting_removal a:active, .content_section a:active, .footer ul li a:active, .restaurants_bloc a:active, .banner_bloc_explore a:active, .banner_bloc a:active, header .header a:active {
   text-decoration: none;
 }
 
@@ -172,32 +174,25 @@ header .header i:hover {
   width: 100%;
 }
 .banner_bloc_mylocation {
+  color: black;
   height: 66px;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #eaeaea;
 }
-.banner_bloc_mylocation_box {
-  color: black;
-  height: 100%;
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.banner_bloc_mylocation i {
+  position: relative;
+  right: 25px;
 }
-.banner_bloc_mylocation_box span {
-  margin-left: 25px;
-  margin-right: 25px;
-}
-.banner_bloc_mylocation_box:hover {
+.banner_bloc_mylocation:hover {
   background-color: #ededed;
 }
-.banner_bloc_mylocation_box:hover i {
+.banner_bloc_mylocation:hover i {
   animation: location_anim 2s infinite;
 }
-.banner_bloc_mylocation_box:hover span {
+.banner_bloc_mylocation:hover span {
   transform: scale(1.01);
 }
 .banner_bloc_explore {
@@ -224,6 +219,7 @@ header .header i:hover {
 .banner_bloc_explore_bouton {
   color: white;
   margin-top: 40px;
+  text-align: center;
   height: 68px;
   width: 60%;
   border-radius: 40px;
@@ -232,6 +228,7 @@ header .header i:hover {
   align-items: center;
   justify-content: center;
   transition-duration: 200ms;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
 }
 .banner_bloc_explore_bouton:hover {
   background: linear-gradient(#ff93e1, #a16be0);
@@ -292,6 +289,7 @@ header .header i:hover {
   height: 100px;
   background-color: #f6f6f6;
   border-radius: 25px;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
   position: relative;
   left: 10px;
   animation: anim_fonctionnement 2s infinite;
@@ -342,6 +340,7 @@ header .header i:hover {
   background-color: #ffffff;
   margin-bottom: 20px;
   border-radius: 20px;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 .restaurants_bloc_bloc-vignettes .vignette_nouveau {
@@ -493,6 +492,7 @@ header .header i:hover {
 .content_section_bloc_vignette {
   background-color: #ffffff;
   border-radius: 20px;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
   margin: 20px 20px 20px 20px;
   overflow: hidden;
   display: flex;
@@ -567,6 +567,7 @@ header .header i:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
   transition-duration: 200ms;
 }
 .content_section_bouton:hover {
