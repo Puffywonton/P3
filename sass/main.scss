@@ -32,9 +32,10 @@ $loader-fontsize: 100vw / 8;
     z-index: 100;
     position: absolute;
     background-color: white;
-    animation: loading_screen 4s;
+    // animation: loading_screen 4s;
     animation-fill-mode: forwards;
-    display: flex;
+    // display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     &_letter{
@@ -59,8 +60,9 @@ $loader-fontsize: 100vw / 8;
     }
 }
 @keyframes loading_screen{
-    80%{
+    95%{
         opacity: 100%;
+        z-index: 1;
     }
     100%{
         z-index: -10;
@@ -110,11 +112,19 @@ $loader-fontsize: 100vw / 8;
 @mixin bouton ($bouton_width, $bouton_height, $bouton_radius){
     height: $bouton_height;
     width: $bouton_width;
+    max-width: 50%;
     border-radius: $bouton_radius;
     background: linear-gradient($color_secondary, $color_primary);
+    color: white;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition-duration: 350ms;
+    transition-property: all;
+    &:hover{
+        opacity: 85%;
+    }
 }
 
 @mixin gradient_transition {
@@ -130,6 +140,10 @@ $loader-fontsize: 100vw / 8;
 
 @mixin default_transition_duration {
     transition-duration: 200ms;
+}
+
+@mixin default_hover_transition {
+    transition-duration: 1s;
 }
 
 @mixin default_shader{
@@ -151,7 +165,7 @@ $loader-fontsize: 100vw / 8;
 :root
 {
     font-family: $font_text, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
 }
 *{
     box-sizing: border-box;
@@ -184,9 +198,10 @@ header
         padding-bottom: 16px;
         @extend .link_formatting_removal;
         img{
-            height: 100%;
+            height: 75%;
             position: relative;
-            left: -10px;
+            left: 15px;
+            
         }
         i{
             color: black;
@@ -212,6 +227,8 @@ header
         justify-content: center;
         align-items: center;
         width: 100%;
+        // border-top: #353535 solid 2px;
+        // @include default_shader();
         @extend .link_formatting_removal;
         &_mylocation{
             color: black;
@@ -221,9 +238,9 @@ header
             justify-content: center;
             align-items: center;
             background-color: $color_background3;
-            span{
-                // margin-left: 25px;
-            }
+            // span{
+            //     margin-left: 25px;
+            // }
             i{
                 position: relative;
                 right: 25px;
@@ -261,15 +278,9 @@ header
                 text-align: center;
             }
             &_bouton{
-                color: white;
                 margin-top: 40px;
-                text-align: center;
                 @include bouton (60%, 68px, 40px);
-                @include default_transition_duration();
                 @include default_shader();
-                &:hover{
-                    background: gradient-shift-light();
-                }
             }
         }
     }
@@ -277,7 +288,7 @@ header
 
 .fonctionnement{
     $color_background2: #ffffff;
-    z-index: 300;
+    // z-index: 500;
     &_bloc{
         padding-top: 65px;
         padding-bottom: 90px;
@@ -293,29 +304,21 @@ header
             align-items: center;
             padding: 0;
             margin: 0;
-            .fonctionnement_animation{
-                @for $i from 1 through 3 {
-                    &--#{$i} {
-                        animation-delay: ($anim-delay * $i);
-                        .animation_i{
-                            &--#{$i} {
-                                animation: anim_fonctionnement_i $anim-dur infinite;
-                                animation-delay: ($anim-delay * $i);
+            // .fonctionnement_animation{
+            //     @for $i from 1 through 3 {
+            //         &--#{$i} {
+            //             animation-delay: ($anim-delay * $i);
+            //             .animation_i{
+            //                 &--#{$i} {
+            //                     animation: anim_fonctionnement_i $anim-dur infinite;
+            //                     animation-delay: ($anim-delay * $i);
                                 
-                            }
-                        }
-                    }
+            //                 }
+            //             }
+            //         }
                     
-                }
-                // .animation_i{
-
-                //     @for $i from 1 through 3 {
-                //         &--#{$i} {
-                //             animation-delay: ($anim-delay * $i);
-                //         }
-                //     }
-                // }
-            }
+            //     }
+            // }
             li{
                 // QUESTION: comment coder les elements du li pour que ca soit jolie en desktop?
                 list-style-type: none;
@@ -360,7 +363,7 @@ header
                 font-weight:600;
             }
             // @include default_transition_duration;
-            animation: anim_fonctionnement $anim-dur infinite;
+            // animation: anim_fonctionnement $anim-dur infinite;
             
             // &:hover{
             //     background-color: lightness-shift($color-primary, 35%);
@@ -450,14 +453,57 @@ header
                         color: black;
                         width: auto;
                         height: auto;
-                        @include default_transition_duration;
+                        // @include default_transition_duration;
+                        transition-duration: 400ms;
                         &:hover{
-                            @include gradient_transition();
-                            @include default_scale_transition();
+                            // @include gradient_transition();
+                            // @include default_scale_transition();
                         }
                         
-                        // QUESTION: j'utilise quoi pour les coeurs? ils sont premiums ceux qu'on peut remplir a l'inteieur ? technique secrete ?
-                        
+                    }
+                    .fa-solid{
+                        // display: none;
+                        position: relative;
+                        left: -33px;
+                        // opacity: 0%;
+                        @include gradient_transition();
+                        // &:hover{
+                            
+                        //     opacity: 100%;
+                        //     transform: scale(1.1);
+                        // }
+                        z-index: 1;
+                        &::after{
+                            content: "";
+                            position: absolute;
+                            height: 25px;
+                            width: 35px;
+                            right: -5px;
+                            top: 2px;
+                            background: white;
+                            // background: green;
+                        }
+                        // &:hover{
+                        //     &::after{
+                        //         animation: heart_fill_spin 1s ease-in-out forwards;
+                        //     }
+                        // }
+                    }
+
+                    .fa-regular{
+                        // display: none;
+                        position: relative;
+                        opacity: 100%;
+                        z-index: 8;
+                        &:hover{
+                            animation: heart_fill_spin2 150ms ease-in-out forwards;
+                        }
+                        &:hover ~ .fa-solid::after{
+                            animation: heart_fill_spin 300ms ease-in-out forwards;
+                        }
+                        &:hover ~ .fa-solid{
+                            animation: heart_pump 300ms ease-in-out forwards;
+                        }
                     }
                     // .fa-solid{
                     //     position: absolute;
@@ -467,11 +513,53 @@ header
                     //         display: block;
                     //     }
                     // }
+                   
+                
                 }
             }
         }
     }
 }
+
+@keyframes heart_fill_spin {
+    0%{
+        transform: translateY(0);
+        scale: 2;
+    }                        
+    100%{
+        transform: translateY(-100%);
+        scale: 1;
+    }
+}
+
+@keyframes heart_fill_spin2 {
+    0%{
+        opacity: 100%;
+    }     
+    30%{
+        opacity: 100%;
+    }                   
+    100%{
+        opacity: 0%;
+        // opacity: 100%;
+    }
+}
+
+@-webkit-keyframes heart_pump {
+    0%{
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(1);
+    }
+    70%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
 .footer{
     padding-left: 20px;
     padding-bottom: 40px;
@@ -500,7 +588,7 @@ header
                 margin-right: 15px;
             }
 
-            // QUESTION comment je fais pour aligner le text apres les icons 
+            
 
         }
     }
@@ -630,16 +718,10 @@ header
             }
         }
         &_bouton{
-            color: white;
             margin-top: 20px;
             margin-bottom: 105px;
             @include bouton (50%, 60px, 40px);
             @include default_shader(); 
-            @include default_transition_duration();
-            &:hover{
-                @include default_scale_transition();
-                background: gradient-shift-light();
-            }
         }
     }
 }
