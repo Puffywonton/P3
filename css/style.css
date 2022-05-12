@@ -400,16 +400,16 @@ header .header i:hover {
   z-index: 8;
 }
 .restaurants_bloc_bloc-vignettes .vignette_box .fa-regular:hover {
-  animation: heart_fill_spin2 150ms ease-in-out forwards;
+  animation: heart_regular_fade 150ms ease-in-out forwards;
 }
 .restaurants_bloc_bloc-vignettes .vignette_box .fa-regular:hover ~ .fa-solid::after {
-  animation: heart_fill_spin 300ms ease-in-out forwards;
+  animation: heart_magic_filter 300ms ease-in-out forwards;
 }
 .restaurants_bloc_bloc-vignettes .vignette_box .fa-regular:hover ~ .fa-solid {
   animation: heart_pump 300ms ease-in-out forwards;
 }
 
-@keyframes heart_fill_spin {
+@keyframes heart_magic_filter {
   0% {
     transform: translateY(0);
     scale: 2;
@@ -419,7 +419,7 @@ header .header i:hover {
     scale: 1;
   }
 }
-@keyframes heart_fill_spin2 {
+@keyframes heart_regular_fade {
   0% {
     opacity: 100%;
   }
@@ -521,56 +521,74 @@ header .header i:hover {
 .content_section_bloc {
   width: 100%;
   padding-bottom: 20px;
+  background-color: #008766;
+  display: flex;
+  flex-direction: column;
 }
 .content_section_bloc_title {
   margin-bottom: 30px;
   margin-left: 30px;
 }
-.content_section_bloc_vignette {
-  background-color: #ffffff;
+.content_section_bloc_groupe-vignettes {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content_section_bloc_groupe-vignettes_vignette {
+  background-color: blue;
   border-radius: 20px;
   box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
-  margin: 20px 20px 20px 20px;
   overflow: hidden;
   display: flex;
-  justify-content: space-between;
   height: 100%;
+  width: 50%;
+  animation: cascade 2s forwards;
 }
-.content_section_bloc_vignette_left {
+.content_section_bloc_groupe-vignettes_vignette_left {
   padding: 14px 14px 14px 14px;
+  display: flex;
+  background-color: gold;
+  justify-content: space-between;
+  width: 100%;
+  animation: tiroir_reverse 1s forwards;
+}
+.content_section_bloc_groupe-vignettes_vignette_left_textbox {
+  display: flex;
+  flex-direction: column;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  background-color: greenyellow;
   width: 100%;
 }
-.content_section_bloc_vignette_left_title {
+.content_section_bloc_groupe-vignettes_vignette_left_textbox_title {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 5px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  width: 100%;
 }
-.content_section_bloc_vignette_left_description {
+.content_section_bloc_groupe-vignettes_vignette_left_textbox_description {
   font-size: 1rem;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  width: 100%;
 }
-.content_section_bloc_vignette_right {
-  display: flex;
-}
-.content_section_bloc_vignette_right_price {
+.content_section_bloc_groupe-vignettes_vignette_left_price {
   padding: 14px 14px 14px 14px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   font-size: 0.9rem;
   font-weight: bold;
+  background-color: yellow;
 }
-.content_section_bloc_vignette_right_check {
+.content_section_bloc_groupe-vignettes_vignette_right {
+  display: flex;
+}
+.content_section_bloc_groupe-vignettes_vignette_right_check {
   flex-direction: column;
   justify-content: center;
   font-size: 1.4rem;
@@ -578,20 +596,13 @@ header .header i:hover {
   padding-right: 25px;
   background-color: #99E2D0;
   color: #ffffff;
-  display: none;
-}
-.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_check {
-  animation: selection_plat_animation 1s;
   display: flex;
 }
-.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_check i {
-  animation: selection_plat_i_animation 1s;
+.content_section_bloc_groupe-vignettes_vignette:hover .content_section_bloc_groupe-vignettes_vignette_left {
+  animation: tiroir 1s forwards;
 }
-.content_section_bloc_vignette:hover .content_section_bloc_vignette_right_price {
-  animation: selection_plat_price_animation 1s;
-}
-.content_section_bloc_vignette:hover .content_section_bloc_vignette_left {
-  animation: selection_plat_cropper_animation 1s;
+.content_section_bloc_groupe-vignettes_vignette:hover .content_section_bloc_groupe-vignettes_vignette_right_check i {
+  animation: tiroir_rotate 1s forwards;
 }
 .content_section_bouton {
   margin-top: 20px;
@@ -614,22 +625,52 @@ header .header i:hover {
   opacity: 85%;
 }
 
-@keyframes selection_plat_animation {
+@keyframes tiroir {
   0% {
-    transform: translateX(75px);
+    width: 100%;
   }
   100% {
+    width: calc(100% - 72px);
+  }
+}
+@keyframes tiroir_reverse {
+  from {
+    width: calc(100% - 72px);
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes cascade {
+  0% {
+    transform: translateY(15px);
+    opacity: 0%;
+  }
+  50% {
+    transform: translateY(15px);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}
+@keyframes tiroir_rotate {
+  0% {
+    transform: rotate(-270deg);
+  }
+}
+@keyframes selection_plat_animation {
+  from {
+    transform: translateX(75px);
+  }
+  to {
     transform: translateX(0);
   }
 }
 @keyframes selection_plat_price_animation {
   0% {
     transform: translateX(75px);
-  }
-}
-@keyframes selection_plat_i_animation {
-  0% {
-    transform: rotate(-270deg);
   }
 }
 @keyframes selection_plat_cropper_animation {
