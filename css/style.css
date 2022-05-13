@@ -6,8 +6,9 @@
   z-index: 100;
   position: absolute;
   background-color: white;
+  animation: loading_screen 4s;
   animation-fill-mode: forwards;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -135,16 +136,76 @@ body {
   margin-right: auto;
 }
 
-header {
-  background-color: #ffffff;
+.fa-heart {
+  font-size: 1.8rem;
+  position: relative;
+  left: 33px;
+  color: black;
+  width: auto;
+  height: auto;
+  transition-duration: 400ms;
 }
+
+.like_heart_solid {
+  position: relative;
+  left: 0px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+}
+.like_heart_solid::after {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 35px;
+  right: -5px;
+  top: 2px;
+  background: white;
+}
+
+.like_heart_solid2 {
+  position: relative;
+  left: -2.5px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+}
+.like_heart_solid2::after {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 32px;
+  right: -2px;
+  top: 2px;
+  background: #f6f6f6;
+}
+
+.like_heart_regular {
+  position: relative;
+  opacity: 100%;
+  z-index: 8;
+}
+.like_heart_regular:hover {
+  animation: heart_regular_fade 250ms ease-in-out forwards;
+}
+.like_heart_regular:hover ~ .fa-solid::after {
+  animation: heart_magic_filter 500ms ease-in-out forwards;
+}
+.like_heart_regular:hover ~ .fa-solid {
+  animation: heart_pump 400ms ease-in-out forwards;
+}
+
 header .header {
   width: 100%;
   margin: 0;
   display: flex;
   justify-content: center;
-  padding-top: 28px;
-  padding-bottom: 16px;
+  padding-top: 23px;
+  padding-bottom: 12px;
 }
 header .header img {
   height: 75%;
@@ -175,33 +236,38 @@ header .header i:hover {
 }
 .banner_bloc_mylocation {
   color: black;
-  height: 66px;
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eaeaea;
+  background: linear-gradient(180deg, rgb(200, 200, 200) 0%, rgb(234, 234, 234) 7%);
 }
-.banner_bloc_mylocation i {
+.banner_bloc_mylocation .fa-location-dot {
   position: relative;
-  right: 25px;
+  left: 5px;
 }
-.banner_bloc_mylocation:hover {
-  background-color: #ededed;
-}
-.banner_bloc_mylocation:hover i {
+.banner_bloc_mylocation .fa-location-dot:hover {
   animation: location_anim 2s infinite;
 }
-.banner_bloc_mylocation:hover span {
-  transform: scale(1.01);
+.banner_bloc_mylocation .input_box input {
+  position: relative;
+  left: 25px;
+  outline: none;
+  border: 0;
+  font-family: Roboto;
+  font-size: 1rem;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 .banner_bloc_explore {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 55px;
-  padding-bottom: 75px;
+  padding-top: 44px;
+  padding-bottom: 58px;
   width: 100%;
 }
 .banner_bloc_explore_title {
@@ -218,10 +284,9 @@ header .header i:hover {
 }
 .banner_bloc_explore_bouton {
   margin-top: 40px;
-  height: 68px;
+  height: 50px;
   width: 60%;
-  max-width: 50%;
-  border-radius: 40px;
+  border-radius: 50px;
   background: linear-gradient(#FF79DA, #9356DC);
   color: white;
   text-align: center;
@@ -237,74 +302,77 @@ header .header i:hover {
 }
 
 .fonctionnement_bloc {
-  padding-top: 65px;
-  padding-bottom: 90px;
+  padding-top: 55px;
+  padding-bottom: 65px;
 }
 .fonctionnement_bloc_title {
-  padding-bottom: 38px;
+  padding-bottom: 34px;
 }
 .fonctionnement_bloc_list {
-  height: 360px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 .fonctionnement_bloc_list li {
   list-style-type: none;
   text-decoration: none;
-  width: 90%;
-  padding: 0;
-  margin: 0;
+  width: 87%;
+  margin-left: 8%;
+  margin-right: 5%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 100px;
+  height: 75px;
   background-color: #f6f6f6;
   border-radius: 25px;
   box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
-  position: relative;
-  left: 10px;
+  transition-duration: 200ms;
 }
 .fonctionnement_bloc_list li * {
-  margin-right: 30px;
+  margin-right: 23px;
   position: relative;
-  left: -15px;
-  bottom: -5px;
+  left: -12px;
+  bottom: -3px;
 }
-.fonctionnement_bloc_list li div {
+.fonctionnement_bloc_list li .li_number {
   background-color: #9356DC;
   color: white;
-  width: 35px;
-  height: 35px;
-  border-radius: 35px;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .fonctionnement_bloc_list li i {
   color: #7e7e7e;
-  font-size: 1.4rem;
-  width: 25px;
+  font-size: 1.2rem;
 }
 .fonctionnement_bloc_list li span {
   font-weight: 600;
+}
+.fonctionnement_bloc_list li:hover {
+  background-color: #f2eafb;
+}
+.fonctionnement_bloc_list li:hover i {
+  color: #9356DC;
 }
 
 .restaurants {
   background-color: #f6f6f6;
 }
 .restaurants_bloc {
-  padding-bottom: 65px;
+  padding-bottom: 50px;
 }
 .restaurants_bloc_title {
-  padding-top: 73px;
-  padding-bottom: 30px;
+  padding-top: 50px;
+  padding-bottom: 25px;
 }
 .restaurants_bloc_bloc-vignettes {
   display: flex;
@@ -313,7 +381,7 @@ header .header i:hover {
 }
 .restaurants_bloc_bloc-vignettes .vignette {
   width: 90%;
-  height: 337px;
+  height: 250px;
   background-color: #ffffff;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -322,8 +390,8 @@ header .header i:hover {
 }
 .restaurants_bloc_bloc-vignettes .vignette_nouveau {
   margin-top: 3%;
-  width: 100px;
-  height: 35px;
+  width: 80px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -369,45 +437,6 @@ header .header i:hover {
   font-size: 1.1rem;
   font-weight: lighter;
 }
-.restaurants_bloc_bloc-vignettes .vignette_box .fa-heart {
-  font-size: 1.8rem;
-  color: black;
-  width: auto;
-  height: auto;
-  transition-duration: 400ms;
-}
-.restaurants_bloc_bloc-vignettes .vignette_box .fa-solid {
-  position: relative;
-  left: -33px;
-  background: linear-gradient(#FF79DA, #9356DC);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 1;
-}
-.restaurants_bloc_bloc-vignettes .vignette_box .fa-solid::after {
-  content: "";
-  position: absolute;
-  height: 25px;
-  width: 35px;
-  right: -5px;
-  top: 2px;
-  background: white;
-}
-.restaurants_bloc_bloc-vignettes .vignette_box .fa-regular {
-  position: relative;
-  opacity: 100%;
-  z-index: 8;
-}
-.restaurants_bloc_bloc-vignettes .vignette_box .fa-regular:hover {
-  animation: heart_regular_fade 150ms ease-in-out forwards;
-}
-.restaurants_bloc_bloc-vignettes .vignette_box .fa-regular:hover ~ .fa-solid::after {
-  animation: heart_magic_filter 300ms ease-in-out forwards;
-}
-.restaurants_bloc_bloc-vignettes .vignette_box .fa-regular:hover ~ .fa-solid {
-  animation: heart_pump 300ms ease-in-out forwards;
-}
 
 @keyframes heart_magic_filter {
   0% {
@@ -446,7 +475,7 @@ header .header i:hover {
 }
 .footer {
   padding-left: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   background-color: #353535;
 }
 .footer_title {
@@ -463,7 +492,7 @@ header .header i:hover {
   padding: 0;
 }
 .footer ul li {
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 .footer ul li a {
   color: white;
@@ -502,56 +531,82 @@ header .header i:hover {
   width: 88%;
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
-  margin: 40px 5% 40px 5%;
+  font-size: 1.7rem;
+  margin: 30px 5% 30px 5%;
 }
 .content_section_title-box_title {
   font-family: Shrikhand;
 }
-.content_section_title-box i {
-  transition-duration: 200ms;
-}
-.content_section_title-box i:hover {
-  background: linear-gradient(#FF79DA, #9356DC);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: scale(1.1);
-}
 .content_section_bloc {
   width: 100%;
   padding-bottom: 20px;
-  background-color: #008766;
   display: flex;
   flex-direction: column;
 }
 .content_section_bloc_title {
   margin-bottom: 30px;
-  margin-left: 30px;
+  margin-left: 18px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: relative;
+}
+.content_section_bloc_title::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background-color: #99E2D0;
+  position: absolute;
+  top: 25px;
+  left: 1px;
 }
 .content_section_bloc_groupe-vignettes {
-  background-color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.content_section_bloc_groupe-vignettes .cascade_vignette--1 {
+  animation: cascade 900ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--2 {
+  animation: cascade 1100ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--3 {
+  animation: cascade 1300ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--4 {
+  animation: cascade 1500ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--5 {
+  animation: cascade 1700ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--6 {
+  animation: cascade 1900ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--7 {
+  animation: cascade 2100ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--8 {
+  animation: cascade 2300ms forwards;
+}
+.content_section_bloc_groupe-vignettes .cascade_vignette--9 {
+  animation: cascade 2500ms forwards;
+}
 .content_section_bloc_groupe-vignettes_vignette {
-  background-color: blue;
+  background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   height: 100%;
-  width: 50%;
-  animation: cascade 2s forwards;
+  width: 93%;
+  margin-bottom: 15px;
 }
 .content_section_bloc_groupe-vignettes_vignette_left {
-  padding: 14px 14px 14px 14px;
+  padding: 14px 10px 14px 10px;
   display: flex;
-  background-color: gold;
   justify-content: space-between;
-  width: 100%;
-  animation: tiroir_reverse 1s forwards;
+  min-width: 100%;
+  animation: tiroir_reverse 700ms forwards;
 }
 .content_section_bloc_groupe-vignettes_vignette_left_textbox {
   display: flex;
@@ -559,8 +614,7 @@ header .header i:hover {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  background-color: greenyellow;
-  width: 100%;
+  min-width: 80%;
 }
 .content_section_bloc_groupe-vignettes_vignette_left_textbox_title {
   font-size: 1.1rem;
@@ -577,13 +631,14 @@ header .header i:hover {
   white-space: nowrap;
 }
 .content_section_bloc_groupe-vignettes_vignette_left_price {
-  padding: 14px 14px 14px 14px;
+  padding: 0px 12px 0px 0px;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-end;
   font-size: 0.9rem;
   font-weight: bold;
-  background-color: yellow;
 }
 .content_section_bloc_groupe-vignettes_vignette_right {
   display: flex;
@@ -606,10 +661,9 @@ header .header i:hover {
 }
 .content_section_bouton {
   margin-top: 20px;
-  margin-bottom: 105px;
-  height: 60px;
+  margin-bottom: 80px;
+  height: 50px;
   width: 50%;
-  max-width: 50%;
   border-radius: 40px;
   background: linear-gradient(#FF79DA, #9356DC);
   color: white;
@@ -627,18 +681,18 @@ header .header i:hover {
 
 @keyframes tiroir {
   0% {
-    width: 100%;
+    min-width: 100%;
   }
   100% {
-    width: calc(100% - 72px);
+    min-width: calc(100% - 72px);
   }
 }
 @keyframes tiroir_reverse {
   from {
-    width: calc(100% - 72px);
+    min-width: calc(100% - 72px);
   }
   to {
-    width: 100%;
+    min-width: 100%;
   }
 }
 @keyframes cascade {
