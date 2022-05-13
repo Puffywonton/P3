@@ -6,7 +6,7 @@
   z-index: 100;
   position: absolute;
   background-color: white;
-  animation: loading_screen 4s;
+  animation: loading_screen 3s;
   animation-fill-mode: forwards;
   display: flex;
   justify-content: center;
@@ -55,11 +55,11 @@
 
 @keyframes loading_screen_div {
   0% {
-    transform: scaleY(0.9);
+    transform: scaleY(0.9) translateY(2px);
     opacity: 80%;
   }
   3% {
-    transform: scaleY(1.2);
+    transform: scaleY(1.2) translateY(-2px);
     opacity: 100%;
   }
 }
@@ -71,20 +71,6 @@
   100% {
     z-index: -10;
     opacity: 0%;
-  }
-}
-@keyframes anim_fonctionnement {
-  25% {
-    background-color: #f5edff;
-    transform: scaleX(1.01);
-  }
-  75% {
-    transform: scaleX(1);
-  }
-}
-@keyframes anim_fonctionnement_i {
-  25% {
-    color: #9356DC;
   }
 }
 @keyframes location_anim {
@@ -177,10 +163,11 @@ body {
 .like_heart_solid2::after {
   content: "";
   position: absolute;
-  height: 25px;
+  height: 32px;
   width: 32px;
-  right: -2px;
-  top: 2px;
+  border-radius: 32px;
+  right: -1px;
+  top: -1px;
   background: #f6f6f6;
 }
 
@@ -196,6 +183,21 @@ body {
   animation: heart_magic_filter 500ms ease-in-out forwards;
 }
 .like_heart_regular:hover ~ .fa-solid {
+  animation: heart_pump 400ms ease-in-out forwards;
+}
+
+.like_heart_regular2 {
+  position: relative;
+  opacity: 100%;
+  z-index: 8;
+}
+.like_heart_regular2:hover {
+  animation: heart_regular_fade 250ms ease-in-out forwards;
+}
+.like_heart_regular2:hover ~ .fa-solid::after {
+  animation: heart_magic_filter2 500ms ease-in-out forwards;
+}
+.like_heart_regular2:hover ~ .fa-solid {
   animation: heart_pump 400ms ease-in-out forwards;
 }
 
@@ -441,11 +443,19 @@ header .header i:hover {
 @keyframes heart_magic_filter {
   0% {
     transform: translateY(0);
-    scale: 2;
   }
   100% {
     transform: translateY(-100%);
-    scale: 1;
+  }
+}
+@keyframes heart_magic_filter2 {
+  0% {
+    transform: scale(1);
+    opacity: 100%;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0%;
   }
 }
 @keyframes heart_regular_fade {
@@ -712,24 +722,6 @@ header .header i:hover {
 @keyframes tiroir_rotate {
   0% {
     transform: rotate(-270deg);
-  }
-}
-@keyframes selection_plat_animation {
-  from {
-    transform: translateX(75px);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-@keyframes selection_plat_price_animation {
-  0% {
-    transform: translateX(75px);
-  }
-}
-@keyframes selection_plat_cropper_animation {
-  0% {
-    margin-right: -75px;
   }
 }
 
