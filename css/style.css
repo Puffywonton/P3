@@ -128,24 +128,18 @@ body {
   }
 }
 
-.fa-heart {
-  font-size: 1.8rem;
-  position: relative;
-  left: 33px;
-  color: black;
-  width: auto;
-  height: auto;
-  transition-duration: 400ms;
-}
-
 .like_heart_solid {
-  position: relative;
-  left: -2.5px;
   background: linear-gradient(#FF79DA, #9356DC);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 1;
+  font-size: 1.8rem;
+  position: relative;
+  left: -2.5px;
+  color: black;
+  width: auto;
+  height: auto;
 }
 .like_heart_solid::after {
   content: "";
@@ -161,8 +155,13 @@ body {
 
 .like_heart_regular {
   animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
-  position: relative;
   z-index: 8;
+  font-size: 1.8rem;
+  position: relative;
+  left: 33px;
+  color: black;
+  width: auto;
+  height: auto;
 }
 .like_heart_regular:hover {
   animation: heart_regular_fade 250ms ease-in-out forwards;
@@ -418,7 +417,7 @@ header .header i:hover {
   position: absolute;
   background-color: #a1ffe8;
   color: #008766;
-  right: 8%;
+  right: 5%;
   font-size: 0.9rem;
   border-radius: 2px;
 }
@@ -461,6 +460,49 @@ header .header i:hover {
   color: black;
   font-size: 1.1rem;
   font-weight: lighter;
+}
+.restaurants_bloc_bloc-vignettes .vignette_box .like_heart_solid {
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+  font-size: 1.8rem;
+  position: relative;
+  left: 0px;
+  color: black;
+  width: auto;
+  height: auto;
+}
+.restaurants_bloc_bloc-vignettes .vignette_box .like_heart_solid::after {
+  content: "";
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  right: -1px;
+  top: -1px;
+  background: #ffffff;
+  animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
+}
+.restaurants_bloc_bloc-vignettes .vignette_box .like_heart_regular {
+  animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
+  z-index: 8;
+  font-size: 1.8rem;
+  position: relative;
+  left: 33px;
+  color: black;
+  width: auto;
+  height: auto;
+}
+.restaurants_bloc_bloc-vignettes .vignette_box .like_heart_regular:hover {
+  animation: heart_regular_fade 250ms ease-in-out forwards;
+}
+.restaurants_bloc_bloc-vignettes .vignette_box .like_heart_regular:hover ~ .fa-solid::after {
+  animation: heart_magic_filter2 500ms ease-in-out forwards;
+}
+.restaurants_bloc_bloc-vignettes .vignette_box .like_heart_regular:hover ~ .fa-solid {
+  animation: heart_pump 400ms ease-in-out forwards;
 }
 
 @keyframes heart_magic_filter {
@@ -514,8 +556,8 @@ header .header i:hover {
   0% {
     opacity: 0%;
   }
-  30% {
-    opacity: 100%;
+  50% {
+    opacity: 0%;
   }
   100% {
     opacity: 100%;
@@ -538,6 +580,7 @@ header .header i:hover {
 .footer {
   margin-top: 3px;
   padding-left: 20px;
+  padding-right: 20px;
   padding-bottom: 20px;
   background-color: #353535;
 }
@@ -555,12 +598,13 @@ header .header i:hover {
   padding: 0;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 150px;
 }
 @media (min-width: 481px) {
   .footer ul {
-    flex-direction: row;
-    justify-content: space-around;
-    width: 50%;
+    height: 75px;
   }
 }
 .footer ul li {
