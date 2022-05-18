@@ -140,7 +140,7 @@ body {
 
 .like_heart_solid {
   position: relative;
-  left: 0px;
+  left: -2.5px;
   background: linear-gradient(#FF79DA, #9356DC);
   background-clip: text;
   -webkit-background-clip: text;
@@ -150,60 +150,27 @@ body {
 .like_heart_solid::after {
   content: "";
   position: absolute;
-  height: 25px;
-  width: 35px;
-  right: -5px;
-  top: 2px;
-  background: white;
-}
-
-.like_heart_solid2 {
-  position: relative;
-  left: -2.5px;
-  background: linear-gradient(#FF79DA, #9356DC);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 1;
-}
-.like_heart_solid2::after {
-  content: "";
-  position: absolute;
   height: 32px;
   width: 32px;
   border-radius: 32px;
   right: -1px;
   top: -1px;
   background: #f6f6f6;
+  animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
 }
 
 .like_heart_regular {
+  animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
   position: relative;
-  opacity: 100%;
   z-index: 8;
 }
 .like_heart_regular:hover {
   animation: heart_regular_fade 250ms ease-in-out forwards;
 }
 .like_heart_regular:hover ~ .fa-solid::after {
-  animation: heart_magic_filter 500ms ease-in-out forwards;
-}
-.like_heart_regular:hover ~ .fa-solid {
-  animation: heart_pump 400ms ease-in-out forwards;
-}
-
-.like_heart_regular2 {
-  position: relative;
-  opacity: 100%;
-  z-index: 8;
-}
-.like_heart_regular2:hover {
-  animation: heart_regular_fade 250ms ease-in-out forwards;
-}
-.like_heart_regular2:hover ~ .fa-solid::after {
   animation: heart_magic_filter2 500ms ease-in-out forwards;
 }
-.like_heart_regular2:hover ~ .fa-solid {
+.like_heart_regular:hover ~ .fa-solid {
   animation: heart_pump 400ms ease-in-out forwards;
 }
 
@@ -504,6 +471,14 @@ header .header i:hover {
     transform: translateY(-100%);
   }
 }
+@keyframes heart_magic_filter_reverse {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes heart_magic_filter2 {
   0% {
     transform: scale(1);
@@ -512,6 +487,16 @@ header .header i:hover {
   100% {
     transform: scale(0);
     opacity: 0%;
+  }
+}
+@keyframes heart_magic_filter2_reverse {
+  0% {
+    transform: scale(0);
+    opacity: 0%;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 100%;
   }
 }
 @keyframes heart_regular_fade {
@@ -525,7 +510,18 @@ header .header i:hover {
     opacity: 0%;
   }
 }
-@-webkit-keyframes heart_pump {
+@keyframes heart_regular_fade_reverse {
+  0% {
+    opacity: 0%;
+  }
+  30% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes heart_pump {
   0% {
     transform: scale(1);
   }

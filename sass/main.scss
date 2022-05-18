@@ -188,22 +188,8 @@ body
     height: auto;
     transition-duration: 400ms;                        
 }
+
 .like_heart_solid{
-    position: relative;
-    left: 0px;
-    @include gradient_transition();
-    z-index: 1;
-    &::after{
-        content: "";
-        position: absolute;
-        height: 25px;
-        width: 35px;
-        right: -5px;
-        top: 2px;
-        background: white;
-    }
-}
-.like_heart_solid2{
     position: relative;
     left: -2.5px;
     @include gradient_transition();
@@ -217,26 +203,15 @@ body
         right: -1px;
         top: -1px;
         background: $color_background1;
+        animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
     }
 }
 
 .like_heart_regular{
+    animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
+    // & ~ .
     position: relative;
-    opacity: 100%;
-    z-index: 8;
-    &:hover{
-        animation: heart_regular_fade 250ms ease-in-out forwards;
-    }
-    &:hover ~ .fa-solid::after{
-        animation: heart_magic_filter 500ms ease-in-out forwards;
-    }
-    &:hover ~ .fa-solid{
-        animation: heart_pump 400ms ease-in-out forwards;
-    }
-}
-.like_heart_regular2{
-    position: relative;
-    opacity: 100%;
+    // opacity: 100%;
     z-index: 8;
     &:hover{
         animation: heart_regular_fade 250ms ease-in-out forwards;
@@ -539,6 +514,14 @@ header
         // scale: 1;
     }
 }
+@keyframes heart_magic_filter_reverse {
+    0%{
+        transform: translateY(-100%);
+    }                        
+    100%{
+        transform: translateY(0);
+    }
+}
 @keyframes heart_magic_filter2 {
     0%{
         transform: scale(1);
@@ -549,6 +532,17 @@ header
         opacity: 0%;
     }
 }
+@keyframes heart_magic_filter2_reverse {
+    0%{
+        transform: scale(0);
+        opacity: 0%;
+    }                        
+    100%{
+        transform: scale(1);
+        opacity: 100%;
+    }
+}
+
 
 @keyframes heart_regular_fade {
     0%{
@@ -561,8 +555,19 @@ header
         opacity: 0%;
     }
 }
+@keyframes heart_regular_fade_reverse {
+    0%{
+        opacity: 0%;
+    }     
+    30%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
 
-@-webkit-keyframes heart_pump {
+@keyframes heart_pump {
     0%{
         transform: scale(1);
     }
