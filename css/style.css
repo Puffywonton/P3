@@ -3,7 +3,7 @@
   font-family: Shrikhand;
   width: 100%;
   height: 100vh;
-  z-index: 100;
+  z-index: 400;
   position: absolute;
   background-color: white;
   animation: loading_screen 2s;
@@ -66,10 +66,8 @@
 @keyframes loading_screen {
   95% {
     opacity: 100%;
-    z-index: 1;
   }
   100% {
-    z-index: -10;
     opacity: 0%;
   }
 }
@@ -184,7 +182,6 @@ header .header i:hover {
   height: 100%;
   width: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 .banner_bloc_mylocation_box .fa-location-dot {
@@ -579,9 +576,9 @@ footer .footer_content ul {
   width: 100%;
   height: 150px;
 }
-@media (min-width: 481px) {
+@media (min-width: 768px) {
   footer .footer_content ul {
-    height: 75px;
+    height: 40px;
   }
 }
 footer .footer_content ul li {

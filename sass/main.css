@@ -3,7 +3,7 @@
   font-family: Shrikhand;
   width: 100%;
   height: 100vh;
-  z-index: 100;
+  z-index: 400;
   position: absolute;
   background-color: white;
   -webkit-animation: loading_screen 2s;
@@ -122,10 +122,8 @@
 @-webkit-keyframes loading_screen {
   95% {
     opacity: 100%;
-    z-index: 1;
   }
   100% {
-    z-index: -10;
     opacity: 0%;
   }
 }
@@ -133,10 +131,8 @@
 @keyframes loading_screen {
   95% {
     opacity: 100%;
-    z-index: 1;
   }
   100% {
-    z-index: -10;
     opacity: 0%;
   }
 }
@@ -308,9 +304,6 @@ header .header i:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -967,9 +960,9 @@ footer .footer_content ul {
   height: 150px;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 768px) {
   footer .footer_content ul {
-    height: 75px;
+    height: 40px;
   }
 }
 
