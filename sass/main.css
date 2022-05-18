@@ -3,7 +3,7 @@
   font-family: Shrikhand;
   width: 100%;
   height: 100vh;
-  z-index: 400;
+  z-index: 5000;
   position: absolute;
   background-color: white;
   -webkit-animation: loading_screen 2s;
@@ -123,8 +123,13 @@
   95% {
     opacity: 100%;
   }
+  99% {
+    z-index: 5000;
+  }
   100% {
     opacity: 0%;
+    z-index: -1;
+    display: none;
   }
 }
 
@@ -132,8 +137,13 @@
   95% {
     opacity: 100%;
   }
+  99% {
+    z-index: 5000;
+  }
   100% {
     opacity: 0%;
+    z-index: -1;
+    display: none;
   }
 }
 
