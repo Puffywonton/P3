@@ -6,8 +6,9 @@
   z-index: 100;
   position: absolute;
   background-color: white;
+  animation: loading_screen 2s;
   animation-fill-mode: forwards;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -89,13 +90,13 @@
   padding-left: 20px;
 }
 
-.link_formatting_removal a:link, .content_section a:link, .footer ul li a:link, .restaurants_bloc a:link, .banner_bloc_explore a:link, .banner_bloc a:link, header .header a:link {
+.link_formatting_removal a:link, .content_section a:link, footer .footer_content ul li a:link, .restaurants_bloc a:link, .banner_bloc_explore a:link, .banner_bloc a:link, header .header a:link {
   text-decoration: none;
 }
-.link_formatting_removal a:visited, .content_section a:visited, .footer ul li a:visited, .restaurants_bloc a:visited, .banner_bloc_explore a:visited, .banner_bloc a:visited, header .header a:visited {
+.link_formatting_removal a:visited, .content_section a:visited, footer .footer_content ul li a:visited, .restaurants_bloc a:visited, .banner_bloc_explore a:visited, .banner_bloc a:visited, header .header a:visited {
   text-decoration: none;
 }
-.link_formatting_removal a:active, .content_section a:active, .footer ul li a:active, .restaurants_bloc a:active, .banner_bloc_explore a:active, .banner_bloc a:active, header .header a:active {
+.link_formatting_removal a:active, .content_section a:active, footer .footer_content ul li a:active, .restaurants_bloc a:active, .banner_bloc_explore a:active, .banner_bloc a:active, header .header a:active {
   text-decoration: none;
 }
 
@@ -147,6 +148,11 @@ header .header img {
   height: 75%;
   position: relative;
 }
+@media (min-width: 1010px) {
+  header .header img {
+    height: 100%;
+  }
+}
 header .header i {
   color: black;
   font-size: 1.5rem;
@@ -159,9 +165,6 @@ header .header i:hover {
   transform: scale(1.1);
 }
 
-.banner {
-  background-color: #f6f6f6;
-}
 .banner_bloc {
   display: flex;
   flex-direction: column;
@@ -204,11 +207,12 @@ header .header i:hover {
   outline: none;
   border: 0;
   font-family: Roboto;
-  font-size: 1rem;
+  font-size: 1.1rem;
   padding: 0;
   margin: 0;
 }
 .banner_bloc_explore {
+  background-color: #f6f6f6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,6 +251,9 @@ header .header i:hover {
 }
 .banner_bloc_explore_bouton:hover {
   opacity: 85%;
+}
+.banner_bloc_explore_bouton:hover {
+  box-shadow: 0px 8px 15px -1px rgba(0, 0, 0, 0.43);
 }
 
 .fonctionnement_bloc {
@@ -325,16 +332,21 @@ header .header i:hover {
 }
 .fonctionnement_bloc_list li:hover {
   background-color: #f2eafb;
+  box-shadow: 0px 8px 15px -1px rgba(0, 0, 0, 0.43);
 }
 .fonctionnement_bloc_list li:hover i {
   color: #9356DC;
 }
 
-.restaurants {
-  background-color: #f6f6f6;
-}
 .restaurants_bloc {
+  background-color: #f6f6f6;
   padding-bottom: 50px;
+}
+@media (min-width: 1300px) {
+  .restaurants_bloc {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
 }
 .restaurants_bloc_title {
   padding-top: 50px;
@@ -362,6 +374,9 @@ header .header i:hover {
   box-shadow: 0px 8px 15px -1px rgba(0, 0, 0, 0.23);
   overflow: hidden;
 }
+.restaurants_bloc_bloc-vignettes .vignette:hover {
+  box-shadow: 0px 8px 15px -1px rgba(0, 0, 0, 0.43);
+}
 .restaurants_bloc_bloc-vignettes .vignette .nouveau_on {
   display: flex;
 }
@@ -381,7 +396,7 @@ header .header i:hover {
   font-size: 0.9rem;
   border-radius: 2px;
 }
-@media (min-width: 581px) {
+@media (min-width: 768px) {
   .restaurants_bloc_bloc-vignettes .vignette {
     width: 45%;
   }
@@ -537,21 +552,23 @@ header .header i:hover {
     transform: scale(1);
   }
 }
-.footer {
+footer {
+  background-color: #353535;
+}
+footer .footer_content {
   margin-top: 3px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
-  background-color: #353535;
 }
-.footer_title {
+footer .footer_content_title {
   padding-top: 27px;
   padding-bottom: 26px;
   font-family: Shrikhand;
   color: white;
   font-size: 1.25rem;
 }
-.footer ul {
+footer .footer_content ul {
   list-style-type: none;
   text-decoration: none;
   margin: 0;
@@ -563,17 +580,17 @@ header .header i:hover {
   height: 150px;
 }
 @media (min-width: 481px) {
-  .footer ul {
+  footer .footer_content ul {
     height: 75px;
   }
 }
-.footer ul li {
+footer .footer_content ul li {
   padding-bottom: 15px;
 }
-.footer ul li a {
+footer .footer_content ul li a {
   color: white;
 }
-.footer ul li i {
+footer .footer_content ul li i {
   width: 15px;
   margin-right: 15px;
 }
@@ -672,7 +689,7 @@ header .header i:hover {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .content_section_container {
     flex-direction: row;
   }
@@ -683,7 +700,7 @@ header .header i:hover {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .content_section_container_bloc {
     width: 33%;
   }
@@ -802,6 +819,9 @@ header .header i:hover {
   color: #ffffff;
   display: flex;
 }
+.content_section_container_bloc_groupe-vignettes_vignette:hover {
+  box-shadow: 0px 8px 15px -1px rgba(0, 0, 0, 0.43);
+}
 .content_section_container_bloc_groupe-vignettes_vignette:hover .content_section_container_bloc_groupe-vignettes_vignette_left {
   animation: tiroir 1s forwards;
 }
@@ -827,6 +847,9 @@ header .header i:hover {
 }
 .content_section .content_section_bouton:hover {
   opacity: 85%;
+}
+.content_section .content_section_bouton:hover {
+  box-shadow: 0px 8px 15px -1px rgba(0, 0, 0, 0.43);
 }
 
 @keyframes tiroir {

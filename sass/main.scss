@@ -27,6 +27,7 @@ $loader-fontsize: 100vw / 8;
 $cascade-anim-delay: 200ms;
 
 $fonctionnement_breakpoint: 1010px;
+$max_wrapper_width: 1300px;
 
 .front_loader{
     font-size: $loader-fontsize;
@@ -36,10 +37,10 @@ $fonctionnement_breakpoint: 1010px;
     z-index: 100;
     position: absolute;
     background-color: white;
-    // animation: loading_screen 3s;
+    animation: loading_screen 2s;
     animation-fill-mode: forwards;
-    // display: flex;
-    display: none;
+    display: flex;
+    // display: none;
     justify-content: center;
     align-items: center;
     &_letter{
@@ -136,6 +137,9 @@ $fonctionnement_breakpoint: 1010px;
 @mixin default_shader{
     box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.23)
 }
+@mixin darker_shader{
+    box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.43)
+}
 
 .front-page_section-title_settings {
     font-size: 1.5rem;
@@ -172,7 +176,7 @@ body
     margin-left: auto;
     margin-right: auto;
     @media (min-width: 768px){
-        max-width: 1300px;
+        max-width: $max_wrapper_width;
         padding-left: 10px;
         padding-right: 10px;
         // background-color: lightblue;
@@ -238,7 +242,10 @@ header
         
         img{
             height: 75%;
-            position: relative;            
+            position: relative;
+            @media (min-width: $fonctionnement_breakpoint){
+                height: 100%;
+            }          
         }
         i{
             color: black;
@@ -256,7 +263,6 @@ header
 
 .banner
 {
-    background-color: $color_background1;
     &_bloc{
         display: flex;
         flex-direction: column;
@@ -296,7 +302,7 @@ header
                         outline: none; 
                         border: 0;
                         font-family: $font_text;
-                        font-size: 1rem;
+                        font-size: 1.1rem;
                         padding: 0;
                         margin: 0;
                         // &:focus{
@@ -307,6 +313,7 @@ header
             }
         }
         &_explore{
+            background-color: $color_background1;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -331,6 +338,9 @@ header
                 margin-top: 40px;
                 @include bouton (60%, 50px, 50px);
                 @include default_shader();
+                &:hover{
+                    @include darker_shader();
+                }
             }
         }
     }
@@ -408,6 +418,7 @@ header
                     i{
                         color: $color_primary;
                     }
+                    @include darker_shader();
                 }
             }
         }
@@ -415,8 +426,12 @@ header
 }
 
 .restaurants{
-    background-color: $color_background1;
     &_bloc{
+        background-color: $color_background1;
+        @media (min-width: $max_wrapper_width){
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;    
+        }
         padding-bottom: 50px;
         &_title{
             padding-top: 50px;
@@ -434,6 +449,9 @@ header
             flex-direction: column;
             align-items: center;
             .vignette{
+                &:hover{
+                    @include darker_shader();
+                }
                 position: relative;
                 .nouveau_on{
                     display: flex;
@@ -455,7 +473,7 @@ header
                     font-size: 0.9rem;
                     border-radius: 2px;
                 }
-                @media (min-width: 581px) {
+                @media (min-width: 768px) {
                 width: 45%;
                 }
                 width: 90%;
@@ -592,47 +610,49 @@ header
         transform: scale(1);
     }
 }
-
-.footer{
-    margin-top: 3px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+footer{
     background-color: $color_footer-background;
-    
-    &_title{
-        padding-top: 27px;
-        padding-bottom: 26px;
-        font-family: $font_title;
-        color: white;
-        font-size: 1.25rem;
-    }
-    ul{
-        list-style-type: none;
-        text-decoration: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 150px;
-        @media (min-width: 481px) {
-            height: 75px;
+    .footer_content{
+        margin-top: 3px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        
+        &_title{
+            padding-top: 27px;
+            padding-bottom: 26px;
+            font-family: $font_title;
+            color: white;
+            font-size: 1.25rem;
         }
-        li{
-            @extend .link_formatting_removal;
-            a{
-                color: white;
+        ul{
+            list-style-type: none;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 150px;
+            @media (min-width: 481px) {
+                height: 75px;
             }
-            padding-bottom: 15px;
-            i{
-                width: 15px;
-                margin-right: 15px;
+            li{
+                @extend .link_formatting_removal;
+                a{
+                    color: white;
+                }
+                padding-bottom: 15px;
+                i{
+                    width: 15px;
+                    margin-right: 15px;
+                }
             }
         }
     }
 }
+
 
 .background_photo{
     width: 100%;
@@ -654,9 +674,6 @@ header
         align-items: center;
         justify-content: center;
         width: 100%;
-        // @media (min-width: 768px){
-        // width: 95%;
-        // }
         position: relative;
         top: -75px;
         margin-bottom: -78px;
@@ -693,12 +710,12 @@ header
             display: flex;
             flex-direction: column;
             // background-color: lightcoral;
-            @media (min-width: 768px){
+            @media (min-width: 900px){
                 flex-direction: row;
             }
             &_bloc{
                 width: 100%;
-                @media (min-width: 768px){
+                @media (min-width: 900px){
                     width: 33%;
                 }
                 padding-bottom: 20px;
@@ -814,6 +831,7 @@ header
                                 }
                                 
                             }
+                            @include darker_shader();
                             
                         }
                     }
@@ -826,6 +844,9 @@ header
             margin-bottom: 80px;
             @include bouton (50%, 50px, 40px);
             @include default_shader(); 
+            &:hover{
+                @include darker_shader();
+            }
         }
     }
 }
