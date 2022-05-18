@@ -128,51 +128,6 @@ body {
   }
 }
 
-.like_heart_solid {
-  background: linear-gradient(#FF79DA, #9356DC);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 1;
-  font-size: 1.8rem;
-  position: relative;
-  left: -2.5px;
-  color: black;
-  width: auto;
-  height: auto;
-}
-.like_heart_solid::after {
-  content: "";
-  position: absolute;
-  height: 32px;
-  width: 32px;
-  border-radius: 32px;
-  right: -1px;
-  top: -1px;
-  background: #f6f6f6;
-  animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
-}
-
-.like_heart_regular {
-  animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
-  z-index: 8;
-  font-size: 1.8rem;
-  position: relative;
-  left: 33px;
-  color: black;
-  width: auto;
-  height: auto;
-}
-.like_heart_regular:hover {
-  animation: heart_regular_fade 250ms ease-in-out forwards;
-}
-.like_heart_regular:hover ~ .fa-solid::after {
-  animation: heart_magic_filter2 500ms ease-in-out forwards;
-}
-.like_heart_regular:hover ~ .fa-solid {
-  animation: heart_pump 400ms ease-in-out forwards;
-}
-
 header {
   display: flex;
   justify-content: center;
@@ -392,7 +347,7 @@ header .header i:hover {
 }
 @media (min-width: 581px) {
   .restaurants_bloc_bloc-vignettes {
-    flex-direction: row-reverse;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
   }
@@ -407,11 +362,16 @@ header .header i:hover {
   box-shadow: 0px 8px 15px -1px rgba(0, 0, 0, 0.23);
   overflow: hidden;
 }
+.restaurants_bloc_bloc-vignettes .vignette .nouveau_on {
+  display: flex;
+}
+.restaurants_bloc_bloc-vignettes .vignette .nouveau_off {
+  display: none;
+}
 .restaurants_bloc_bloc-vignettes .vignette_nouveau {
   margin-top: 3%;
   width: 80px;
   height: 30px;
-  display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -664,6 +624,49 @@ header .header i:hover {
 .content_section_title-box_title {
   font-family: Shrikhand;
 }
+.content_section_title-box .like_heart_solid {
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+  font-size: 1.8rem;
+  position: relative;
+  left: -2.5px;
+  color: black;
+  width: auto;
+  height: auto;
+}
+.content_section_title-box .like_heart_solid::after {
+  content: "";
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  right: -1px;
+  top: -1px;
+  background: #f6f6f6;
+  animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
+}
+.content_section_title-box .like_heart_regular {
+  animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
+  z-index: 8;
+  font-size: 1.8rem;
+  position: relative;
+  left: 33px;
+  color: black;
+  width: auto;
+  height: auto;
+}
+.content_section_title-box .like_heart_regular:hover {
+  animation: heart_regular_fade 250ms ease-in-out forwards;
+}
+.content_section_title-box .like_heart_regular:hover ~ .fa-solid::after {
+  animation: heart_magic_filter2 500ms ease-in-out forwards;
+}
+.content_section_title-box .like_heart_regular:hover ~ .fa-solid {
+  animation: heart_pump 400ms ease-in-out forwards;
+}
 .content_section_container {
   width: 100%;
   display: flex;
@@ -734,6 +737,9 @@ header .header i:hover {
 }
 .content_section_container_bloc_groupe-vignettes .cascade_vignette--9 {
   animation: cascade 2500ms forwards;
+}
+.content_section_container_bloc_groupe-vignettes .cascade_vignette--10 {
+  animation: cascade 2700ms forwards;
 }
 .content_section_container_bloc_groupe-vignettes_vignette {
   border-radius: 20px;

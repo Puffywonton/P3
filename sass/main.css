@@ -216,61 +216,6 @@ body {
   }
 }
 
-.like_heart_solid {
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
-  background: linear-gradient(#FF79DA, #9356DC);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 1;
-  font-size: 1.8rem;
-  position: relative;
-  left: -2.5px;
-  color: black;
-  width: auto;
-  height: auto;
-}
-
-.like_heart_solid::after {
-  content: "";
-  position: absolute;
-  height: 32px;
-  width: 32px;
-  border-radius: 32px;
-  right: -1px;
-  top: -1px;
-  background: #f6f6f6;
-  -webkit-animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
-          animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
-}
-
-.like_heart_regular {
-  -webkit-animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
-          animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
-  z-index: 8;
-  font-size: 1.8rem;
-  position: relative;
-  left: 33px;
-  color: black;
-  width: auto;
-  height: auto;
-}
-
-.like_heart_regular:hover {
-  -webkit-animation: heart_regular_fade 250ms ease-in-out forwards;
-          animation: heart_regular_fade 250ms ease-in-out forwards;
-}
-
-.like_heart_regular:hover ~ .fa-solid::after {
-  -webkit-animation: heart_magic_filter2 500ms ease-in-out forwards;
-          animation: heart_magic_filter2 500ms ease-in-out forwards;
-}
-
-.like_heart_regular:hover ~ .fa-solid {
-  -webkit-animation: heart_pump 400ms ease-in-out forwards;
-          animation: heart_pump 400ms ease-in-out forwards;
-}
-
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -614,9 +559,9 @@ header .header i:hover {
 @media (min-width: 581px) {
   .restaurants_bloc_bloc-vignettes {
     -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -ms-flex-pack: distribute;
@@ -636,13 +581,20 @@ header .header i:hover {
   overflow: hidden;
 }
 
+.restaurants_bloc_bloc-vignettes .vignette .nouveau_on {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.restaurants_bloc_bloc-vignettes .vignette .nouveau_off {
+  display: none;
+}
+
 .restaurants_bloc_bloc-vignettes .vignette_nouveau {
   margin-top: 3%;
   width: 80px;
   height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1075,6 +1027,61 @@ header .header i:hover {
   font-family: Shrikhand;
 }
 
+.content_section_title-box .like_heart_solid {
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+  font-size: 1.8rem;
+  position: relative;
+  left: -2.5px;
+  color: black;
+  width: auto;
+  height: auto;
+}
+
+.content_section_title-box .like_heart_solid::after {
+  content: "";
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  right: -1px;
+  top: -1px;
+  background: #f6f6f6;
+  -webkit-animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
+          animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
+}
+
+.content_section_title-box .like_heart_regular {
+  -webkit-animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
+          animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
+  z-index: 8;
+  font-size: 1.8rem;
+  position: relative;
+  left: 33px;
+  color: black;
+  width: auto;
+  height: auto;
+}
+
+.content_section_title-box .like_heart_regular:hover {
+  -webkit-animation: heart_regular_fade 250ms ease-in-out forwards;
+          animation: heart_regular_fade 250ms ease-in-out forwards;
+}
+
+.content_section_title-box .like_heart_regular:hover ~ .fa-solid::after {
+  -webkit-animation: heart_magic_filter2 500ms ease-in-out forwards;
+          animation: heart_magic_filter2 500ms ease-in-out forwards;
+}
+
+.content_section_title-box .like_heart_regular:hover ~ .fa-solid {
+  -webkit-animation: heart_pump 400ms ease-in-out forwards;
+          animation: heart_pump 400ms ease-in-out forwards;
+}
+
 .content_section_container {
   width: 100%;
   display: -webkit-box;
@@ -1187,6 +1194,11 @@ header .header i:hover {
 }
 
 .content_section_container_bloc_groupe-vignettes .cascade_vignette--9 {
+  -webkit-animation: cascade calc($cascade-anim-delay * $i + 700ms) forwards;
+          animation: cascade calc($cascade-anim-delay * $i + 700ms) forwards;
+}
+
+.content_section_container_bloc_groupe-vignettes .cascade_vignette--10 {
   -webkit-animation: cascade calc($cascade-anim-delay * $i + 700ms) forwards;
           animation: cascade calc($cascade-anim-delay * $i + 700ms) forwards;
 }
