@@ -37,10 +37,10 @@ $max_wrapper_width: 1300px;
     z-index: 5000;
     position: absolute;
     background-color: white;
-    // animation: loading_screen 2s;
+    animation: loading_screen 2s;
     animation-fill-mode: forwards;
-    // display: flex;
-    display: none;
+    display: flex;
+    // display: none;
     justify-content: center;
     align-items: center;
     &_letter{

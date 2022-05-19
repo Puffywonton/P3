@@ -6,8 +6,9 @@
   z-index: 5000;
   position: absolute;
   background-color: white;
+  animation: loading_screen 2s;
   animation-fill-mode: forwards;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

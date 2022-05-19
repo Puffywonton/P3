@@ -6,9 +6,13 @@
   z-index: 5000;
   position: absolute;
   background-color: white;
+  -webkit-animation: loading_screen 2s;
+          animation: loading_screen 2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
