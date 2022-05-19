@@ -146,12 +146,16 @@ header .header {
   padding-bottom: 12px;
   position: relative;
 }
-header .header img {
+header .header .ohmyfood_home {
+  display: flex;
+  justify-content: center;
+}
+header .header .ohmyfood_home img {
   height: 75%;
   position: relative;
 }
 @media (min-width: 1010px) {
-  header .header img {
+  header .header .ohmyfood_home img {
     height: 100%;
   }
 }

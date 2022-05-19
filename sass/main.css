@@ -247,13 +247,22 @@ header .header {
   position: relative;
 }
 
-header .header img {
+header .header .ohmyfood_home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .header .ohmyfood_home img {
   height: 75%;
   position: relative;
 }
 
 @media (min-width: 1010px) {
-  header .header img {
+  header .header .ohmyfood_home img {
     height: 100%;
   }
 }
