@@ -37,10 +37,10 @@ $max_wrapper_width: 1300px;
     z-index: 5000;
     position: absolute;
     background-color: white;
-    animation: loading_screen 2s;
+    // animation: loading_screen 2s;
     animation-fill-mode: forwards;
-    display: flex;
-    // display: none;
+    // display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     &_letter{
@@ -285,22 +285,28 @@ header
                 width: auto;
                 display: flex;
                 align-items: center;
+                justify-content: center;
+                position: relative;
                 .fa-location-dot{
-                    position: relative;
-                    left: 5px;
+                    position: absolute;
+                    left: 25px;
                     &:hover{
                         animation: location_anim $anim-dur infinite;
                     }
                 }
                 .input_box{
                     height: 100%;
-                    display: flex;
-                    align-items: center;
+                    width: 150px;
+                    margin-left: 50px;
+                    // display: flex;
+                    // align-items: center;
+                    // background-color: red;
                     input{
                         background: none;
                         height: 100%;
-                        position: relative;
-                        left: 25px;
+                        width: 100%;
+                        // position: relative;
+                        // left: 25px;
                         outline: none; 
                         border: 0;
                         font-family: $font_text;
