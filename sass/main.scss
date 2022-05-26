@@ -1,33 +1,10 @@
-$font_title: Shrikhand;
-$font_text: Roboto;
 
+@import "./variables";
+@import "./keyframes";
+@import "./functions";
+@import "./mixins";
+@import "./menu";
 
-$color_primary: #9356DC;
-$color_secondary: #FF79DA;
-$color_tertiary: #99E2D0;
-
-$color_background1: #f6f6f6;
-$color_background2: #ffffff;
-$color_background3: #eaeaea;
-$color_footer-background: #353535;
-
-$icon_color_fonctionnement: #7e7e7e;
-$icon_color_nouveau: #008766;
-
-
-$anim-dur: 2s;
-$anim-delay: $anim-dur / 3;
-
-
-$load-anim-dur: 1s;
-$load-anim-delay: $load-anim-dur / 8;
-
-$loader-fontsize: 100vw / 8;
-
-$cascade-anim-delay: 200ms;
-
-$fonctionnement_breakpoint: 1010px;
-$max_wrapper_width: 1300px;
 
 .front_loader{
     font-size: $loader-fontsize;
@@ -35,12 +12,11 @@ $max_wrapper_width: 1300px;
     width: 100%;
     height: 100vh;
     z-index: 5000;
-    position: absolute;
+    position: fixed;
     background-color: white;
     animation: loading_screen 2s;
     animation-fill-mode: forwards;
     display: flex;
-    // display: none;
     justify-content: center;
     align-items: center;
     &_letter{
@@ -54,95 +30,7 @@ $max_wrapper_width: 1300px;
     }
     
 }
-@keyframes loading_screen_div{
-    0%{
-        transform: scaleY(0.9) translateY(2px);
-        opacity: 80%;
-    }
-    3%{
-        transform: scaleY(1.2) translateY(-2px);
-        opacity: 100%;
-    }
-}
-@keyframes loading_screen{
-    95%{
-        opacity: 100%;
-    }
-    99%{
-        z-index: 5000;
-    }
-    100%{
-        opacity: 0%;
-        z-index: -1;
-        display: none;
-    }
-}
 
-@keyframes location_anim{
-    10% {
-        transform: scaleY(0.6) translateY(5px);
-    }
-    40% {
-        transform: translateY(-10px) rotateY(360deg);
-    }
-    70% {
-        transform: translateY(1px);
-    }
-}
-
-@function gradient-shift-light(){
-    $color1: lighten($color-primary, 5%);
-    $color2: lighten($color_secondary, 5%);
-    @return linear-gradient($color2, $color1);
-}
-
-@function lightness-shift($color, $percent){
-    @return lighten($color, $percent);
-}
-
-@mixin bouton ($bouton_width, $bouton_height, $bouton_radius){
-    height: $bouton_height;
-    width: $bouton_width;
-    max-width: 225px;
-    border-radius: $bouton_radius;
-    background: linear-gradient($color_secondary, $color_primary);
-    color: white;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition-duration: 350ms;
-    transition-property: all;
-    &:hover{
-        opacity: 85%;
-    }
-}
-
-@mixin gradient_transition {
-    background: linear-gradient($color_secondary, $color_primary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-@mixin default_scale_transition{
-    transform: scale(1.1);
-}
-
-@mixin default_transition_duration {
-    transition-duration: 200ms;
-}
-
-@mixin default_hover_transition {
-    transition-duration: 1s;
-}
-
-@mixin default_shader{
-    box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.23)
-}
-@mixin darker_shader{
-    box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.43)
-}
 
 .front-page_section-title_settings {
     font-size: 1.5rem;
@@ -182,50 +70,8 @@ body
         max-width: $max_wrapper_width;
         padding-left: 10px;
         padding-right: 10px;
-        // background-color: lightblue;
     }
 }
-
-@mixin solid_heart ($magic_filter_background) {
-    @include gradient_transition();
-    z-index: 1;
-    &::after{
-        content: "";
-        position: absolute;
-        height: 32px;
-        width: 32px;
-        border-radius: 32px;
-        right: -1px;
-        top: -1px;
-        background: $magic_filter_background;
-        animation: heart_magic_filter2_reverse 250ms ease-in-out forwards;
-    }
-}
-
-@mixin regular_heart {
-    animation: heart_regular_fade_reverse 250ms ease-in-out forwards;
-    z-index: 8;
-    &:hover{
-        animation: heart_regular_fade 250ms ease-in-out forwards;
-    }
-    &:hover ~ .fa-solid::after{
-        animation: heart_magic_filter2 500ms ease-in-out forwards;
-    }
-    &:hover ~ .fa-solid{
-        animation: heart_pump 400ms ease-in-out forwards;
-    }
-}
-
-@mixin parameters_heart ($heart_position){
-    font-size: 1.8rem;
-    position: relative;
-    left: $heart_position;
-    color: black;
-    width: auto;
-    height: auto;
-}
-
-
 
 header
 {
@@ -294,32 +140,23 @@ header
                     position: absolute;
                     left: 25px;
                     &:hover{
-                        animation: location_anim $anim-dur infinite;
+                        animation: location_anim $location-anim-dur infinite;
                     }
                 }
                 .input_box{
                     height: 100%;
                     width: 150px;
                     margin-left: 50px;
-                    // display: flex;
-                    // align-items: center;
-                    // background-color: red;
                     input{
-                        // background-color: blue;
                         background: none;
                         height: 100%;
                         width: 100%;
-                        // position: relative;
-                        // left: 25px;
                         outline: none; 
                         border: 0;
                         font-family: $font_text;
                         font-size: 1.1rem;
                         padding: 0;
                         margin: 0;
-                        // &:focus{
-                        //     background-color: lightgray;
-                        // }
                     }
                 }
             }
@@ -475,13 +312,12 @@ header
                     margin-top: 3%;
                     width: 80px;
                     height: 30px;
-                    // display: flex;
                     justify-content: center;
                     align-items: center;
                     position: absolute;
                     background-color: lightness-shift($icon_color_nouveau, 55%);
                     color: $icon_color_nouveau;
-                    right: 5%; //origin 8
+                    right: 5%;
                     font-size: 0.9rem;
                     border-radius: 2px;
                 }
@@ -545,83 +381,7 @@ header
     }
 }
 
-@keyframes heart_magic_filter {
-    0%{
-        transform: translateY(0);
-        // scale: 2;
-    }                        
-    100%{
-        transform: translateY(-100%);
-        // scale: 1;
-    }
-}
-@keyframes heart_magic_filter_reverse {
-    0%{
-        transform: translateY(-100%);
-    }                        
-    100%{
-        transform: translateY(0);
-    }
-}
-@keyframes heart_magic_filter2 {
-    0%{
-        transform: scale(1);
-        opacity: 100%;
-    }                        
-    100%{
-        transform: scale(0);
-        opacity: 0%;
-    }
-}
-@keyframes heart_magic_filter2_reverse {
-    0%{
-        transform: scale(0);
-        opacity: 0%;
-    }                        
-    100%{
-        transform: scale(1);
-        opacity: 100%;
-    }
-}
 
-
-@keyframes heart_regular_fade {
-    0%{
-        opacity: 100%;
-    }     
-    30%{
-        opacity: 100%;
-    }
-    100%{
-        opacity: 0%;
-    }
-}
-@keyframes heart_regular_fade_reverse {
-    0%{
-        opacity: 0%;
-    }     
-    50%{
-        opacity: 0%;
-    }
-    100%{
-        opacity: 100%;
-    }
-}
-
-@keyframes heart_pump {
-    0%{
-        transform: scale(1);
-    }
-    30%{
-        transform: scale(1);
-    }
-    70%{
-        transform: scale(1.1);
-    }
-    100%{
-        transform: scale(1);
-    }
-}
 footer{
     background-color: $color_footer-background;
     .footer_content{
@@ -666,236 +426,7 @@ footer{
 }
 
 
-.background_photo{
-    width: 100%;
-        height: 350px;
-        @media (min-width: 768px){
-            height: 500px;
-        }
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-}
-.content{
-    width: 100%;
-    &_section{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        position: relative;
-        top: -75px;
-        margin-bottom: -78px;
-        background-color: $color_background1;
-        // background-color: gold;
-        @extend .link_formatting_removal;
-        border-top-left-radius: 50px;
-        border-top-right-radius: 50px;
-        &_title-box{
-            width: 88%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.7rem;
-            margin: 30px 0% 30px 0%;
-            @media (min-width: 768px){
-                width: 95%;
-            }
-            &_title{
-                font-family: $font_title;
-            }
-            .like_heart_solid {
-                @include solid_heart($color_background1);
-                @include parameters_heart(-2.5px)
-            }
-            
-            .like_heart_regular{
-                @include regular_heart();
-                @include parameters_heart(33px);
-            }
-
-        }
-        &_container{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            // background-color: lightcoral;
-            @media (min-width: 900px){
-                flex-direction: row;
-            }
-            &_bloc{
-                width: 100%;
-                @media (min-width: 900px){
-                    width: 33%;
-                }
-                padding-bottom: 20px;
-                // background-color: #008766;
-                display: flex;
-                flex-direction: column;
-                
-                &_title{
-                    margin-bottom: 30px;
-                    margin-left: 18px;
-                    font-size: 1rem;
-                    text-transform: uppercase;
-                    position: relative;
-                    width: auto;
-                    // background-color: greenyellow;
-                    &::after{
-                        content: "";
-                        width: 40px;
-                        height: 3px;
-                        background-color: $color_tertiary;
-                        position: absolute;
-                        top: 25px;
-                        left: 1px
-                    }
-                }
-                
-                &_groupe-vignettes{
-                    .cascade_vignette{
-                        @for $i from 1 through 10 {
-                            &--#{$i} {
-                                animation: cascade calc($cascade-anim-delay * $i + 700ms) forwards;
-                            }
-                        }
-                    }
-                    // background-color: red;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 100%;
-                    &_vignette{
-                        // background-color: $color_background2;
-                        // background-color: blue;
-                        border-radius: 20px;
-                        @include default_shader();
-                        overflow: hidden;
-                        // overflow: visible;
-                        display: flex;
-                        height: 100%;
-                        width: 93%;
-                        margin-bottom: 15px;
-                        &_left{
-                            padding: 14px 10px 14px 10px;
-                            display: flex;
-                            justify-content: space-between;
-                            min-width: 100%;
-                            animation: tiroir_reverse 700ms forwards;
-                            &_textbox{
-                                display: flex;
-                                flex-direction: column;
-                                text-overflow: ellipsis;
-                                overflow: hidden;
-                                white-space: nowrap;
-                                // background-color: greenyellow;
-                                min-width: 80%;
-                                &_title{
-                                    font-size: 1.1rem;
-                                    font-weight: bold;
-                                    margin-bottom: 5px;
-                                    text-overflow: ellipsis;
-                                    overflow: hidden;
-                                    white-space: nowrap;
-                                }
-                                &_description{
-                                    font-size: 1rem;
-                                    text-overflow: ellipsis;
-                                    overflow: hidden;
-                                    white-space: nowrap;
-                                }    
-                            }
-                            &_price{
-                                padding: 0px 12px 0px 0px;
-                                width: 20%;
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: flex-end;
-                                align-items: flex-end;
-                                font-size: 0.9rem;
-                                font-weight: bold;
-                                // background-color: yellow;
-                            }
-                        }
-                        &_right{
-                            display: flex;
-                            &_check{
-                                flex-direction: column;
-                                justify-content: center;
-                                font-size: 1.4rem;
-                                padding-left: 25px;
-                                padding-right: 25px;
-                                background-color: $color_tertiary;
-                                color: #ffffff;
-                                display: flex;
-                            }
-                        }
-                        &:hover{
-                            .content_section_container_bloc_groupe-vignettes_vignette_left{
-                                animation: tiroir 1s forwards;
-                                
-                            }
-                            .content_section_container_bloc_groupe-vignettes_vignette_right_check{
-                                i{
-                                    animation: tiroir_rotate 1s forwards;
-                                }
-                                
-                            }
-                            @include darker_shader();
-                            
-                        }
-                    }
-                }
-            }
-        }
-        .content_section_bouton{
-            margin-top: 20px;
-            margin-bottom: 80px;
-            @include bouton (50%, 50px, 40px);
-            @include default_shader(); 
-            &:hover{
-                @include darker_shader();
-            }
-        }
-    }
-}
-
-@keyframes tiroir {
-    0%{
-        min-width: 100%;
-    }
-    100%{
-        min-width:  calc(100% - 72px);
-    }
-}
-
-@keyframes tiroir_reverse {
-    from {min-width: calc(100% - 72px);} to {min-width: 100%;}
-    
-}
-
-@keyframes cascade {
-    0%{
-        transform: translateY(15px);
-        opacity: 0%;
-    }
-    50%{
-        transform: translateY(15px);
-        opacity: 0%;
-    }
-    100%{
-        transform: translateY(0px);
-        opacity: 100%;
-    }
-}
 
 
 
-@keyframes tiroir_rotate {
-    0%{
-        transform: rotate(-270deg);
-    }
-}
 

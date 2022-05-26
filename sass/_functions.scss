@@ -1,0 +1,9 @@
+@function gradient-shift-light(){
+    $color1: lighten($color-primary, 5%);
+    $color2: lighten($color_secondary, 5%);
+    @return linear-gradient($color2, $color1);
+}
+
+@function lightness-shift($color, $percent){
+    @return lighten($color, $percent);
+}

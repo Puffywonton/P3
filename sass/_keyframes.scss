@@ -1,0 +1,138 @@
+@keyframes loading_screen_div{
+    0%{
+        transform: scaleY(0.9) translateY(2px);
+        opacity: 80%;
+    }
+    3%{
+        transform: scaleY(1.2) translateY(-2px);
+        opacity: 100%;
+    }
+}
+@keyframes loading_screen{
+    95%{
+        opacity: 100%;
+    }
+    99%{
+        z-index: 5000;
+    }
+    100%{
+        opacity: 0%;
+        z-index: -1;
+        display: none;
+    }
+}
+@keyframes location_anim{
+    10% {
+        transform: scaleY(0.6) translateY(5px);
+    }
+    40% {
+        transform: translateY(-10px) rotateY(360deg);
+    }
+    70% {
+        transform: translateY(1px);
+    }
+}
+@keyframes heart_magic_filter_reverse {
+    0%{
+        transform: translateY(-100%);
+    }                        
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes heart_magic_filter2 {
+    0%{
+        transform: scale(1);
+        opacity: 100%;
+    }                        
+    100%{
+        transform: scale(0);
+        opacity: 0%;
+    }
+}
+@keyframes heart_magic_filter2_reverse {
+    0%{
+        transform: scale(0);
+        opacity: 0%;
+    }                        
+    100%{
+        transform: scale(1);
+        opacity: 100%;
+    }
+}
+
+
+@keyframes heart_regular_fade {
+    0%{
+        opacity: 100%;
+    }     
+    30%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+@keyframes heart_regular_fade_reverse {
+    0%{
+        opacity: 0%;
+    }     
+    50%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes heart_pump {
+    0%{
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(1);
+    }
+    70%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes tiroir {
+    0%{
+        min-width: 100%;
+    }
+    100%{
+        min-width:  calc(100% - 72px);
+    }
+}
+
+@keyframes tiroir_reverse {
+    from {min-width: calc(100% - 72px);} to {min-width: 100%;}
+    
+}
+
+@keyframes cascade {
+    0%{
+        transform: translateY(15px);
+        opacity: 0%;
+    }
+    50%{
+        transform: translateY(15px);
+        opacity: 0%;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 100%;
+    }
+}
+
+
+
+@keyframes tiroir_rotate {
+    0%{
+        transform: rotate(-270deg);
+    }
+}
